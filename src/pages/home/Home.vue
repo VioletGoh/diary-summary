@@ -1,6 +1,9 @@
 <template>
-    <div>
-        home page...
+    <div class="home">
+        <Sidebar />
+        <div class="wrapper">
+            home content
+        </div>
     </div>
 </template>
 
@@ -14,5 +17,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
-    
+    .home{
+        // display: flex;
+        .wrapper{
+            // flex: 1;
+            // color: @white;
+            // background-color: @purple;
+        }
+    }
 </style>

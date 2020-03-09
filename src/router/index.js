@@ -1,23 +1,41 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-// import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
 
 const routes = [{
         path: '/',
-        name: 'index',
+        // name: 'index',
         component: () => import(/* webpackChunkName: "index" */ '@/pages/index'),
         children: [
             {
                 path: '/',
-                name: 'Home',
+                // name: 'Home',
                 component: () => import(/* webpackChunkName: "home" */ '@/pages/home/Home')
             },
             {
                 path: '/home',
-                name: 'Home',
                 component: () => import(/* webpackChunkName: "home" */ '@/pages/home/Home')
+            },
+            {
+                path: '/cssStyle',
+                component: () => import(/* webpackChunkName: "home" */ '@/pages/cssStyle/CssStyle')
+            },
+            {
+                path: '/jsScript',
+                component: () => import(/* webpackChunkName: "home" */ '@/pages/jsScript/JsScript')
+            },
+            {
+                path: '/vues',
+                component: () => import(/* webpackChunkName: "home" */ '@/pages/vues/Vues')
+            },
+            {
+                path: '/miniProgram',
+                component: () => import(/* webpackChunkName: "home" */ '@/pages/miniProgram/MiniProgram')
+            },
+            {
+                path: '/interview',
+                component: () => import(/* webpackChunkName: "home" */ '@/pages/interview/Interview')
             }
         ]
     },
@@ -32,4 +50,4 @@ const router = new VueRouter({
     routes
 });
 
-export default router
+export default router;

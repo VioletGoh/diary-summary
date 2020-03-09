@@ -1,6 +1,9 @@
 <template>
-    <div>
-        <router-view />
+    <div class="index">
+        <Header />
+        <div class="main">
+            <router-view />
+        </div>
     </div>
 </template>
 
@@ -16,5 +19,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-    
+    .index{
+        position: relative;
+    }
+    .main{
+        margin-top: 3rem;
+    }
 </style>

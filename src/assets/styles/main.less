@@ -1,19 +1,32 @@
-body, html{
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: @txtColor;
-    box-sizing: border-box;
-    // background-color: #faf8f9;
-}
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td{
     margin: 0;
     padding: 0;
 }
+body, html{
+    font-size: 100%; // 在根目录设置该值，可直接按照1rem=16px的比例来转换
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+}
+body{
+    line-height: 1;
+    color: @black;
+    // background-color: @bgColor;
+    font-family: PingFangSC-Regular, Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
 table{
     border-collapse: collapse;
     border-spacing: 0;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: ''
+}
+blockquote, q {
+    quotes: ''
+}
+input, textarea {
+    margin: 0;
+    padding: 0;
 }
 fieldset, img{
     border: 0;
@@ -26,10 +39,17 @@ ul, ol, li{
     list-style: none;
 }
 h1, h2, h3, h4, h5, h6{
-    font-size: 100%;
     font-weight: normal;
 }
-a{
+a, a:hover{
     text-decoration: none;
     outline: none;
+    color: @black;
 }
+
+// common styles
+.wrapper{
+    margin-left: 20rem;
+}
+
+
