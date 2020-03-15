@@ -14,16 +14,16 @@ module.exports = {
     },
 
     // 开发服务配置
-    // devServer: {
-    //     // disableHostCheck: true,
-    //     proxy: {
-    //         '/api': {
-    //             target: 'http://139.196.252.230:8444',
-    //             changeOrigin: true, // 设置同源  默认false，是否需要改变原始主机头为目标URL
-    //             pathRewrite: {
-    //                 '^/api': ''
-    //             }
-    //         }
-    //     }
-    // }
+    devServer: {
+        // disableHostCheck: true,
+        proxy: {
+            '/api': {
+                target: 'http://127.0.0.1:8080',
+                changeOrigin: true, // 设置同源  默认false，是否需要改变原始主机头为目标URL
+                pathRewrite: {
+                    '^/api': ''
+                }
+            }
+        }
+    }
 };

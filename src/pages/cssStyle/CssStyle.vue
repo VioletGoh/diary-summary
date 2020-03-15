@@ -1,6 +1,9 @@
 <template>
     <div>
-        css
+        <Sidebar />
+        <div class="wrapper">
+            css
+        </div>
     </div>
 </template>
 

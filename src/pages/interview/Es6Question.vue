@@ -1,15 +1,12 @@
 <template>
     <div>
-        <Sidebar />
-        <div class="wrapper">
-            mini program
-        </div>
+        es6
     </div>
 </template>
 
 <script>
 export default {
-    // name: 'MiniProgram'
+    
 }
 </script>
 

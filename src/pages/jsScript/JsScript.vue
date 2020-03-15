@@ -1,12 +1,15 @@
 <template>
     <div>
-        js
+        <Sidebar />
+        <div class="wrapper">
+            js
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    
+    // name: 'JsScript'
 }
 </script>
 

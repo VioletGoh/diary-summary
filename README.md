@@ -25,5 +25,10 @@ npm run test
 npm run lint
 ```
 
+### use live-server get the static json data, run live-server in the mock folder
+```
+live-server
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

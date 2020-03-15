@@ -1,7 +1,18 @@
 <template>
     <div class="sidebar">
+        <!-- <ul v-if="this.sidebarData">
+            <router-link v-for="(val, i) in this.sidebarData" :key="i" to="" tag="li"></router-link>
+        </ul> -->
         <ul>
-            <li>sidebar</li>
+            <router-link
+                v-for="(val, i) in interSubmenu"
+                :key="i"
+                :to="{name: `${val}Question`}"
+                tag="li"
+            >
+                <!-- :to="`/interview/${val}Question`" -->
+                {{ val }}
+            </router-link>
         </ul>
     </div>
 </template>
@@ -11,6 +22,12 @@ export default {
     name: 'Sidebar',
     props: {
         sidebarData: {
+            type: Object,
+            default() {
+                return {}
+            }
+        },
+        interSubmenu: {
             type: Array,
             default() {
                 return []
@@ -19,9 +36,19 @@ export default {
     },
     data() {
         return {
-            
+            initInterActive: 0
         }
     },
+    created() {
+        // console.log(this.sidebarData);
+    },
+    methods: {
+        handleClickFunc(val, i) {
+            console.log(val);
+            this.initInterActive = i;
+            this.$router.push(`/interview/${val}Question`);
+        }
+    }
 }
 </script>
 
@@ -33,5 +60,21 @@ export default {
         left: 0;
         bottom: 0;
         box-shadow: 2px 2px 2px rgba(0, 0, 0, .03);
+        ul{
+            padding: 1.5rem 0 1.5rem 1rem;
+            li{
+                display: block;
+                padding: .25rem 0;
+                font-size: 1em;
+                font-weight: 600;
+                cursor: pointer;
+                &:hover{
+                    color: @purple;
+                }
+                &.router-link-active{
+                    color: @purple;
+                }
+            }
+        }
     }
 </style>

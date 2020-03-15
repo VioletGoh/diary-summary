@@ -3,7 +3,14 @@
         <div class="logo">Violet</div>
         <div class="menu">
             <ul>
-                <router-link v-for="(item, i) in navList" :key="i" :to="item.name" tag="li">{{item.title}}</router-link>
+                <router-link
+                    v-for="(item, i) in navList"
+                    :key="i"
+                    :to="{name: item.name}"
+                    tag="li"
+                >
+                    {{item.title}}
+                </router-link>
             </ul>
         </div>
     </div>
@@ -14,6 +21,7 @@ export default {
     // name: 'Header',
     data() {
         return {
+            isSelected: 0,
             navList: [
                 {
                     name: 'Home',
@@ -41,7 +49,24 @@ export default {
                 }
             ]
         }
-    }
+    },
+    computed: {
+        // initIsSelected() {
+        //     return this.isSelected === this.navList[0].title ? 'router-link-active' : '';
+        // }
+    },
+    methods: {
+        handleHeaderClick(index, event) {
+            this.isSelected = index;
+            console.log(event);
+            // this.$router.push(`/${value.name}`);
+        }
+        // clickHeader(index, event) {
+        //     console.log(index);
+        //     this.isSelected = index;
+        //     console.log(event.currentTarget);
+        // }
+    },
 }
 </script>
 
@@ -59,7 +84,7 @@ export default {
         box-shadow: 0 3px 4px rgba(0, 0, 0, .03);
         z-index: 20;
         .logo{
-            width: 8rem;
+            width: 20rem;
             font-size: 1.3rem;
         }
         .menu{
@@ -78,6 +103,12 @@ export default {
                         bottom: 0;
                         height: 2px;
                         background-color: @white;
+                    }
+                    &:hover{
+                        color: @purple;
+                        &::after{
+                            background-color: @purple;
+                        }
                     }
                     &.router-link-active{
                         color: @purple;

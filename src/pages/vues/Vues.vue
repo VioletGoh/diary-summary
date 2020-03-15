@@ -1,12 +1,15 @@
 <template>
     <div>
-        vue
+        <Sidebar />
+        <div class="wrapper">
+            vue
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    
+    // name: 'Vues'
 }
 </script>
 
