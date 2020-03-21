@@ -10,7 +10,6 @@
                 :to="{name: `${val}Question`}"
                 tag="li"
             >
-                <!-- :to="`/interview/${val}Question`" -->
                 {{ val }}
             </router-link>
         </ul>
@@ -36,18 +35,14 @@ export default {
     },
     data() {
         return {
-            initInterActive: 0
+            
         }
     },
     created() {
-        // console.log(this.sidebarData);
+
     },
     methods: {
-        handleClickFunc(val, i) {
-            console.log(val);
-            this.initInterActive = i;
-            this.$router.push(`/interview/${val}Question`);
-        }
+        
     }
 }
 </script>

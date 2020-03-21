@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
     // name: 'Interview',
     data() {
@@ -17,23 +19,17 @@ export default {
     },
     mounted() {
         this.getInterviewData();
-        // console.log(this.sidebar);
     },
     methods: {
+        ...mapMutations(['mutationInterviewData']),
         getInterviewData() {
             this.$axios.get('api/interview.json').then(res => {
                 const data = res.data;
-                if(data.ret == true && data.data) {
-                    // console.log(data.data);
-                    // let navArray = Object.keys(data.data).map(val => val);
-                    // console.log(navArray);
-                    // // sidebar模块接收的是Object格式，将Array转换成Object格式
-                    // for(let key in navArray) {
-                    //     this.sidebar[key] = navArray[key];
-                    // }
-
-                    this.sidebar = Object.keys(data.data).map(val => val);
-                    // console.log(this.sidebar);
+                console.log(data);
+                if(data) {
+                    this.sidebar = Object.keys(data).map(val => val);
+                    this.mutationInterviewData(data); // get the interview data
+                    // this.$store.commit('mutationInterviewData', data); // the second function to commit mutation's data
                 }
             }).catch(err => {
                 console.log(err);

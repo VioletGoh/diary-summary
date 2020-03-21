@@ -21,7 +21,6 @@ export default {
     // name: 'Header',
     data() {
         return {
-            isSelected: 0,
             navList: [
                 {
                     name: 'Home',
@@ -51,21 +50,10 @@ export default {
         }
     },
     computed: {
-        // initIsSelected() {
-        //     return this.isSelected === this.navList[0].title ? 'router-link-active' : '';
-        // }
+        
     },
     methods: {
-        handleHeaderClick(index, event) {
-            this.isSelected = index;
-            console.log(event);
-            // this.$router.push(`/${value.name}`);
-        }
-        // clickHeader(index, event) {
-        //     console.log(index);
-        //     this.isSelected = index;
-        //     console.log(event.currentTarget);
-        // }
+        
     },
 }
 </script>
@@ -81,6 +69,7 @@ export default {
         font-size: .9rem;
         font-weight: 600;
         text-align: center;
+        background-color: @white;
         box-shadow: 0 3px 4px rgba(0, 0, 0, .03);
         z-index: 20;
         .logo{
