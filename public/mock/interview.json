@@ -25,391 +25,397 @@
             "code": ""
         },
         {
-            "id": 27,
+            "id": 5,
             "question": "HTTP的缓存是什么？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 40,
+            "id": 6,
             "question": "浏览器的缓存有哪些？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 4,
+            "id": 7,
             "question": "http和https的区别？",
             "answer": "一、基本概念：;1、Http：超文本传输协议（Http，HyperText Transfer Protocol）是互联网上应用最为广泛的一种网络协议。设计Http最初的目的是为了提供一种发布和接收HTML页面的方法。它可以使浏览器更加高效。Http协议是以明文方式发送信息的，如果黑客截取了Web浏览器和服务器之间的传输报文，就可以直接获取其中的信息；;2、Https：是以安全为目标的Http通道，是Http的安全版。Https的安全基础是SSL。SSL协议位于TCP/IP协议与各种应用层协议之间，为数据通讯提供安全支持。SSL协议可分为两层：SSL记录协议（SSL Record Protocol），它建立在可靠的传输协议（如TCP）之上，为高层协议提供数据封装、压缩、加密等基本功能的支持。SSL握手协议（SSL Handshake Protocol），它建立在SSL记录协议之上，用于在实际的数据传输开始前，通讯双方进行身份认证、协商加密算法、交换加密密钥等。;二、原理：;1、Http：;a）客户端的浏览器首先要通过网络与服务器建立连接，该连接是通过TCP 来完成的，一般 TCP 连接的端口号是80。 建立连接后，客户机发送一个请求给服务器，请求方式的格式为：统一资源标识符（URL）、协议版本号，后边是 MIME 信息包括请求修饰符、客户机信息和许可内容；;b）服务器接到请求后，给予相应的响应信息，其格式为一个状态行，包括信息的协议版本号、一个成功或错误的代码，后边是 MIME 信息包括服务器信息、实体信息和可能的内容；;2、Https：;;a）客户端将它所支持的算法列表和一个用作产生密钥的随机数发送给服务器；;b）服务器从算法列表中选择一种加密算法，并将它和一份包含服务器公用密钥的证书发送给客户端；;c）该证书还包含了用于认证目的的服务器标识，服务器同时还提供了一个用作产生密钥的随机数；;d）客户端对服务器的证书进行验证（有关验证证书，可以参考数字签名），并抽取服务器的公用密钥；然后，再产生一个称作 pre_master_secret 的随机密码串，并使用服务器的公用密钥对其进行加密（参考非对称加 / 解密），并将加密后的信息发送给服务器；;e）客户端与服务器端根据 pre_master_secret 以及客户端与服务器的随机数值独立计算出加密和 MAC密钥（参考 DH密钥交换算法）；;f）客户端将所有握手消息的 MAC 值发送给服务器；;g）服务器将所有握手消息的 MAC 值发送给客户端。;三、区别：;1、https协议需要到CA（Certificate Authority，证书颁发机构）申请证书，一般免费证书较少，因而需要一定费用。（原来网易官网是http，而网易邮箱是https）；;2、http是超文本传输协议，信息是明文传输，https则是具有安全性的SSL加密传输协议；;3、http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443；;4、http的连接很简单，是无状态的。https协议是由SSL+http协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。（无状态的意思是其数据包的发送、传输和接收都是相互独立的。无连接的意思是指通信双方都不长久的维持对方的任何信息）。",
             "code": ""
         },
         {
-            "id": 16,
+            "id": 8,
             "question": "http2.0和http1.0有什么区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 5,
+            "id": 9,
             "question": "http的请求方式有哪些？",
             "answer": "1、get：向服务器请求指定的资源；;2、post：向服务器提交数据请求处理，数据被包含在请求体中；;3、head：返回服务器上对指定资源数据的HTTP请求头，在不需要返回全部数据的情况；;4、options：返回服务器对指定资源数据支持的HTTP请求方法，一般用于测试服务器功能的可用性；;5、put：向服务器上传指定的数据；;6、delete：向服务器发送请求删除指定数据；;7、trace：回显服务器收到的请求，主要进行功能测试诊断；;8、connect：HTTP1.1协议中预留请求方式，可以将连接改为管道方式的代理服务器。",
             "code": ""
         },
         {
-            "id": 6,
+            "id": 10,
             "question": "http请求参数类型有哪些？",
             "answer": "参数类型：;1、body体参数：json，form，xml等；;2、路径参数（path）；;3、消息头参数；;4、查询参数（拼接在URL后面）。;注意：请求体（常见的content-type类型）有几种格式：;1、application/form（用的多），例：a=1&b=2&c=3；;2、application/json（用的多），例：{'a': '1', 'b': '2', 'c': '3'}；;3、text/plain（用的少），例：abc；;4、text/html（用的少）。",
             "code": ""
         },
         {
-            "id": 7,
+            "id": 11,
             "question": "http常见的状态码有哪些？",
             "answer": "1、200成功；;2、4XX，客户端错误，a）400 Bad requset---客户端请求的语法错误，服务器无法理解；;b）404 Not Found---服务器无法根据客户端的请求找到资源(网页)；;c）405 Method Not Allowed---客户端请求中的方法被禁止；;d）409 Conflict---服务器完成客户端的PUT请求是可能返回此代码，服务器处理请求时发生了冲突；;3、5XX，服务端错误，500 Internal Server Error---服务器内部错误，无法完成请求。",
             "code": ""
         },
         {
-            "id": 7,
+            "id": 12,
             "question": "get和post的区别有哪些？",
             "answer": "1、提交参数的位置不同：get提交的数据会放在URL之后，以?分割URL和传输数据，参数之间以&相连，如http://www.baidu.com/test?name=test&id=123456。post方法是把提交的数据放在HTTP包的body中；;2、提交参数的大小不同：get提交的数据大小有限制（因为浏览器对URL的长度有限制），这点要根据实际情况而论，目前浏览器种类比较多，不同的浏览器大小限制不同。而post方法提交的数据理论上没有限制，但是不建议太大；;3、安全问题上：get方式提交数据，会带来安全问题，因为参数是裸露在地址栏上，所以比较不安全。post方式参数在body中，所以安全性较高（注意：只是较高，不是很安全，在http协议下，不管哪种提交方式，都是明文提交，只要有抓包工具，都能抓取数据的！！！）；;4、是否浏览器可以收藏：get请求因为参数在地址栏上行，因此可以收藏（因为参数也会保存）。post请求不行，不能被浏览器收藏，因为参数无法被浏览器保存。",
             "code": ""
         },
         {
-            "id": 8,
+            "id": 13,
             "question": "cookie，localStorage和sessionStorage的区别？",
             "answer": "1、大小（相对而言）：cookie小，localStorage大，sessionStorage大；;2、有效期：cookie存在有效期（代码设置），localStorage永久（可手删），sessionStorage当前会话（关闭页面出发删除）；;3、作用域：cookie同源共享，localStorage同源共享，sessionStorage单页面使用；;4、用处：coolie通信，localStorage简单储存，sessionStorage简单储存。;注：localStorage的生命周期是永久的，除非用户主动在浏览器上清楚localStorage信息，否则这些信息将永远存在。sessionStorage的生命周期为当前窗口或标签页，一旦窗口或标签页被关闭了，那么所有通过sessionStorage存储的数据也就被清空了。",
             "code": ""
         },
         {
-            "id": 9,
+            "id": 14,
             "question": "多个页面之间如何进行通信？",
             "answer": "1、websocket协议；;2、localStorage；;3、html5浏览器的新特性。",
             "code": ""
         },
         {
-            "id": 10,
+            "id": 15,
             "question": "JSP上传文件的参数是什么？",
             "answer": "Form表单格式",
             "code": ""
         },
         {
-            "id": 11,
+            "id": 16,
             "question": "js数据类型有哪些？它们有什么区别？",
             "answer": "1、原始值：Number、String、Boolean、undefined、null、Symbol（ES6新增）；;2、引用值：Array、Object、function、date、Regexp。;3、区别：;a）基本类型的值是不可变的，在从一个变量向另一个变量赋值基本类型时，会在该变量上创建一个新值，然后再把该值赋值到为新变量分配的位置上。而引用类型的值是可变的，当一个变量向另一个变量赋值引用类型的值时，同样也会将存储在变量中的对象的值赋值一份到为新变量分配的空间中。即基本类型是传值，而引用类型是传址。;b）基本类型的比较是值的比较：只要它们的值相等它们就相等；引用类型的比较是引用的比较。;c）基本类型的变量是存放在栈区的（栈区指内存里的栈内存）；引用类型的值是同时保存在栈内存和堆内存中的对象。",
             "code": "var a = 10;var b = a;a++;console.log(a) // 11;console.log(b) // 10;var a = [1,2,3];var b = a;b.push(4);console.log(a) //[1,2,3,4];console.log(b) // [1,2,3,4]"
         },
         {
-            "id": 29,
+            "id": 17,
             "question": "js浅拷贝和深拷贝的区别？常用的深拷贝方法有哪些？",
             "answer": "基本数据类型拷贝的是变量的值，引用数据类型拷贝的是变量的地址。浅拷贝就是指向内存地址，复制后还是引用，原来的地址中的对象有变化，拷贝出来的对象跟随变化。深拷贝件就是另外开辟一块内存放置新的对象，与被拷贝的对象无关联。;js常见的深拷贝方法有哪些：;a）使用递归的方式实现深拷贝；;b）使用JSON对象实现深拷贝；;c）通过jQuery的$.extend()方法实现深拷贝；;d）Object.assign()拷贝。",
             "code": ""
         },
         {
-            "id": 12,
+            "id": 18,
             "question": "js判断数据类型的常用方式有哪些？",
             "answer": "1、typeof；;2、instanceof；;3、对象原型链判断方法： Object.prototype.toString.call()；;4、根据对象的constructor进行判断；;5、jQuery方法： jquery.type()；;6、有局限的判断:严格运算符===。",
             "code": "console.log(typeof 'hello') // string;console.log([1, 2, 3)] instanceof Array) // true;console.log(Object.prototype.toString.call('123')) // [object String];function A() {};function B() {};A.prototype = new B();console.log(A.constructor === B) // false;console.log(jQuery.type(123) === 'number') // true;var a = null;typeof a // object;a === null // true;"
         },
         {
-            "id": 13,
+            "id": 19,
             "question": "string和array之间的转换（PS：类型转换技巧）",
             "answer": "",
             "code": ""
         },
         {
-            "id": 14,
+            "id": 20,
             "question": "JSON.stringify()和JSON.parse()的区别？",
             "answer": "1、JSON.stringify()将JavaScript值转换成json字符串；;2、JSON.parse()将json字符串转换成对象。",
             "code": ""
         },
         {
-            "id": 15,
+            "id": 21,
             "question": "js数组升降序排序",
             "answer": "",
             "code": ""
         },
         {
-            "id": 16,
+            "id": 22,
             "question": "js数组去重的常用方法有哪些？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 16,
+            "id": 23,
             "question": "jQuery数组去重的方法有哪些？",
             "answer": "$.unique()",
             "code": "let arr = [1, 2, 2, 3, 5, 5];console.log($.unique(arr))"
         },
         {
-            "id": 17,
+            "id": 24,
             "question": "数组的常用方法",
             "answer": "",
             "code": ""
         },
         {
-            "id": 18,
+            "id": 25,
             "question": "数组reduce()方法",
             "answer": "",
             "code": ""
         },
         {
-            "id": 19,
+            "id": 26,
             "question": "for、forEach和map的区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 20,
+            "id": 27,
             "question": "查找元素：indexOf()、lastIndexOf()、includes()、find()、findIndex()",
             "answer": "",
             "code": ""
         },
         {
-            "id": 21,
+            "id": 28,
             "question": "document.write()和innerHTML的区别？",
             "answer": "1、document.write是直接将内容写入页面的内容流，会导致页面全部重绘；;2、innerHTML将内容写入某个DOM节点，不会导致页面全部重绘。",
             "code": ""
         },
         {
-            "id": 22,
+            "id": 29,
             "question": "document load和document ready的区别？",
             "answer": "页面加载完成有两种事件：;1、load是当前页面所有资源全部加载完成后（包括DOM文档树，css文件，js文件，图片资源等），执行一个函数问题：如果图片资源较多，加载时间较长，onload后等待执行的函数需要等待较长时间，所以一些效果可能受到影响；;2、$(document).ready()是当DOM文档树加载完成后执行一个函数（不包含图片，css等）所以会比load较快执行，在原生的js中不包括ready()这个方法，只有load方法也就是onload事件。",
             "code": ""
         },
         {
-            "id": 23,
+            "id": 30,
             "question": "事件委托是什么？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 24,
+            "id": 31,
             "question": "事件冒泡是什么？它和事件委托有什么区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 25,
+            "id": 32,
             "question": "阻止事件冒泡和默认行为",
             "answer": "",
             "code": ""
         },
         {
-            "id": 26,
+            "id": 33,
             "question": "null和undefined的区别？",
             "answer": "1、null：null类型，代表“空值”，代表一个空对象指针，使用typeof运算得到‘object’，所以你可以认为它是一个特殊的对象值；;2、undefined：undefined类型，当声明了一个变量未初始化时，得到的就是undefined。",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 34,
             "question": "setTimeout()和setInterval()的区别？",
             "answer": "1、setTimeout()在规定的时间后执行完某个操作后就停止了，而setInterval()则可以在每隔指定的毫秒数循环调用函数或表达式，直到clearInterval把它清除。;2、区别：setTimeout()只执行一次，而setInterval可以多次调用;",
             "code": ""
         },
         {
-            "id": 28,
+            "id": 35,
             "question": "什么是防抖和节流？有什么区别？怎么实现？",
             "answer": "1、防抖（debounce）：触发高频事件后n秒内函数只会执行一次，如果n秒内高频事件再次被触发，则重新计算时间。举例：就好像在百度搜索时，每次输入之后都有联想词弹出，这个控制联想词的方法就不可能是输入框内容一改变就触发的，他一定是你结束输入一段时间之后才会触发。;2、节流（thorttle）：高频事件触发，单子n秒内只会执行一次，所以节流会稀释函数的执行频率。举例：预定一个函数只有在大于等于执行周期时才执行，周期内调用不执行，就好像你在淘宝抢购某一件限量热卖商品时，你不断点刷新购买，可是总有一段时间你点上是没有效果，这里就用到了节流，就是怕点的太快导致系统出现bug。;3、区别：防抖动是将多次执行变为最后一次执行，节流是将多次执行变成每隔一段时间执行。",
             "code": ""
         },
         {
-            "id": 30,
+            "id": 36,
             "question": "js中require和import的区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 51,
-            "question": "AMD、CMD、CommonJS和ES6的区别？",
-            "answer": "",
-            "code": ""
+            "id": 37,
+            "question": "CommonJS、AMD、CMD和ES6的区别？",
+            "answer": "一、CommonJS：;1、基本概念：;a）为JS的表现来制定规范，因为js没有模块的功能，所以CommonJS应运而生，它希望js可以在任何地方运行，不只是浏览器中；;b）同步；;c）CommonJS规范，通过module.exports定义的，在前端浏览器中并不支持；;d）NodeJS是CommonJS规范的实现，webpack也是以CommonJS的形式来书写的；;e）CommonJS定义的模块分为：模块引用（require），模块定义（exports），模块标识（module）-----requier()用来引入外部模块；exports对象用于导出当前模块的方法或变量，唯一的导出口；module对象就代表模块本身。;注：浏览器不兼容CommonJS的根本原因，也正是在于缺少四个Node.js环境的变量：module、exports、requier、global。;2、特点：;a）对于基本数据类型，属于复制。即会被模块缓存。同时，在另一个模块可以对该模块输出的变量重新赋值；;b）对于复杂数据类型（即引用类型数据），属于浅拷贝。由于两个模块引用的对象指向同一个内存空间，因此对该模块的值做修改时会影响另一个模块）；;c）当使用require命令加载某个模块时，就会运行整个模块的代码；;d）当使用require命令加载同一个模块时，不会再执行该模块，而是取到缓存之中的值。也就是说，CommonJS模块无论加载多少次，都只会在第一次加载时运行一次，以后再加载，就返回第一次运行的结果，除非手动清除系统缓存；;e）循环加载时，属于加载时执行。即脚本代码在require的时候，就会全部执行。一旦出现某个模块被”循环加载“，就只会输出已经执行的部分，还未执行的部分不会输出。;二、AMD;1、诞生背景：;a）基于CommonJS规范的NodeJS出来以后，服务端的模块概念已经形成，很自然地，大家就想要客户端模块。而且最好两者能够兼容，一个模块不用修改，在服务器和浏览器都可以运行。但是，由于一个重大的局限，使得CommonJS规范不适用于浏览器环境。因为会有一个很大的问题：;var math = require('math');math.add(2, 3);第二行math.add(2, 3），在第一行require('math')之后运行，因此必须等math.js加载完成。也就是说，如果加载时间很长，整个应用就会停在那里等。您会注意到require是同步的。;b）这对服务端不是问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等待很长时间，浏览器处于”假死“状态。;因此，浏览器端的模块，不能采用”同步加载（synchronous）“，只能采用”异步加载（asynchronous）“。这就是AMD规范诞生的背景。;c）CommonJS主要是为了JS在后端的表现制定的，它是不适合前端的，AMD（异步模块定义）出现了，它就主要为前端JS的表现制定规范。;2、定义：AMD（异步模块定义 Asynchronous Module Definition），是require.js在推广过程中对模块定义的规范产出，require.js是对AMD这个概念的实现：;a）模块本身和模块之间的引用可以被异步的加载，是一个概念；;b）先引入模块，后使用引用模块的方法，所以我们称之为依赖前置。;3、优点：;a）包括异步的调用和本身的高扩展性；;b）它实现了解耦，模块在代码中也可以通过识别号进行查询。;4、require.js的诞生的作用：;a）实现js文件的异步加载，避免网页失去响应；;b）管理模块之间的依赖性，便于代码的编写和维护。;三、CMD;1、CMD是SeaJs在推广过程中对模块定义的规范化产出，同步模块定义，是一个概念；;2、SeaJs的作者是前淘宝UED，现支付宝前端工程师玉伯；;3、原则：依赖就近原则。所有的模块通过define定义，通过require引入依赖，并不是AMD的依赖前置，而是依赖就近原则，在哪里使用，在哪里引入，就是同步的概念，即用即返回。;四、AMD和CMD的区别：;AMD通过require.js实现；;CMD通过sea.js实现。;1、相同处：Requie.js和Sea.js都是模块加载器，倡导模块化开发理念，核心价值是让JavaScript的模块化开发变得简单自然；;2、区别：;a）定位有差异。RequireJS想成为浏览器端的模块加载器，同时也想成为Rhino/Node等环境的模块加载器。SeaJs则专注于Web浏览器端，同事通过Node扩展的方法可以很方便跑在Node环境中；;b）遵循的规范不同。RequireJS遵循AMD（异步模块定义 Asynchronous）规范，Sea.js遵循CMD（同步模块定义 Synchronous）规范。规范的不同，导致了两者API不同。Sea.js更贴近CommonJS Module1.1和Node Module规范；;c）RequireJS是依赖前置，Sea.js是依赖就近。RequireJS是先加载后执行，SeaJs是按需加载执行（AMD2.0添加了按需加载的方法）；;d）对开发调试的支持有差异。Sea.js非常专注代码的开发调试，有mocache、debug等 用于调试的插件。RequireJS无这方面的明显支持；;e）插件机制不同。RequireJS采取的是在源码中预留接口的形式，插件类型比较单一。Sea.js采取的是通用事件机制，插件类型更丰富。;总之，如果说RequireJS是Prototype类库的话，Sea.js则致力于成为jQuery类库。;五、ES6;1、ES6模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西；;2、ES6模块输出的是值的引用，输出接口动态绑定，而CommonJS输出的是值的拷贝；ES6模块编译时执行，而CommonJS模块总是在运行时加载。",
+            "code": "参考网址：https://blog.csdn.net/haochangdi123/article/details/80408874"
         },
         {
-            "id": 31,
+            "id": 38,
             "question": "ajax和axios的底层实现原理是什么？它俩的区别是什么？",
             "answer": "原理：。;区别：ajax技术实现了网页的局部数据刷新，axios实现了对ajax的封装（axios是通过promise实现对ajax技术的一种封装，就像jQuery实现ajax封装一样）。axios是ajax，ajax不止axios。",
             "code": ""
         },
         {
-            "id": 32,
+            "id": 39,
             "question": "axios的封装",
             "answer": "",
             "code": ""
         },
         {
-            "id": 33,
+            "id": 40,
             "question": "闭包是什么？闭包的作用？闭包会不会造成内存泄漏？怎么优化，避免造成内存泄漏？",
             "answer": "我觉得闭包是由内部和外部组成的，内部就是内部函数，外部就是局部变量。这样的作用是为了间接的访问一个变量，或者是把一个局部变量隐藏起来。比如说做了一个抽奖的功能，如果脱离后端进行次数校验的话，只是在前端尽可能的考虑每个人的次数安全，我不想把这个count暴露出来，但是其他的方法又访问不到怎么办，这时候我就考虑使用闭包，暴露一个函数，间接访问这个局部变量。;作用：;1、访问其他函数内部变量；;2、保护变量不被内存回收机制回收；;3、避免全局变量被污染，方便调用上下文的局部变量，加强封装性。;缺点：闭包长期占用内存，内存消耗很大，可能导致内存泄漏（如若操作不当，可能会导致内存泄漏）。;如何避免闭包引起的内存泄漏：;1、在退出函数之前，将不使用的局部变量全部删除，可以将变量赋值为null；;2、避免变量的循环赋值和引用；;3、理由jQuery释放自身指定的所有事件处理程序。",
             "code": ""
         },
         {
-            "id": 35,
+            "id": 41,
             "question": "什么是内存泄漏？",
             "answer": "首先，需要了解浏览器自身的内存回收机制。每个浏览器会有自己的一套回收机制，当分配出去的内存不使用的时候便会回收。内存泄漏的根本原因就是你的代码中分配了一些‘忘的’内存，浏览器无法进行回收，如果这些‘顽固的’内存还在一直不停的分配就会导致后面所用内存不足，造成泄漏。因为闭包就是能够访问外部函数变量的一个函数，而函数是必须保存在内存中的对象，所以位于函数执行上下文中的所有变量也需要保存在内存中，这样就不会被回收，如果一旦循环引用或创建闭包，就会占用大量内存，可能 引起内存泄漏）。",
             "code": ""
         },
         {
-            "id": 34,
+            "id": 42,
             "question": "垃圾回收机制",
             "answer": "",
             "code": ""
         },
         {
-            "id": 35,
+            "id": 43,
             "question": "原型链是什么？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 36,
+            "id": 44,
             "question": "环境和作用域是什么？作用域的分类有哪些？",
             "answer": "拿城市来举例子，城市会有一系列的设施（如医院、学校、超市等）为人们服务，这些设施有作用范围，比如一个在上海的人不可能特地跑到北京的超市去买东西，那么这里的作用范围就等于作用域。环境可以理解为一块内存的作用域（定义的全局变量就算不使用也是不会被销毁和回收的，会一直存在着（js语言的特殊性））",
             "code": ""
         },
         {
-            "id": 37,
+            "id": 45,
             "question": "js继承的几种方式和优缺点？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 38,
+            "id": 46,
             "question": "var、let和const的区别？",
             "answer": "1、var定义变量会有变量提升，因为浏览器会先将我们的代码进行解析，var只有全局作用域和函数作用域，没有块级作用域的概念；;2、而如果用let来定义变量则不存在变量提升，但是会有暂时性死区（TDC），所以用let声明的变量必须在声明之后再来使用，let只有块级作用域，由{}包括起来；;3、const和let的作用域是一致的，不同的是const变量一旦被赋值，就不能再改变了，但是这并不意味着使用const声明的变量本身不可变，只是说它不可被再次赋值了，而且const声明的变量必须经过初始化。",
             "code": ""
         },
         {
-            "id": 39,
+            "id": 47,
             "question": "前端如何做代码优化？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 41,
+            "id": 48,
             "question": "Math数学计算",
             "answer": "",
             "code": ""
         },
         {
-            "id": 42,
+            "id": 49,
             "question": "Math.random()随机数",
             "answer": "",
             "code": ""
         },
         {
-            "id": 43,
+            "id": 50,
             "question": "filter()过滤器",
             "answer": "",
             "code": ""
         },
         {
-            "id": 44,
+            "id": 51,
             "question": "移动端的点击事件有延迟，时间是多少？为什么会有？怎么解决这个问题？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 45,
+            "id": 52,
             "question": "移动端click事件、touch事件和tap事件的区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 46,
+            "id": 53,
             "question": "分别阐述split()、join()、slice()、splice()的区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 47,
+            "id": 54,
             "question": "bind()、call()和apply()的含义和区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 48,
+            "id": 55,
             "question": "如何做到修改URL参数页面不刷新？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 49,
+            "id": 56,
             "question": "js构造函数和普通函数的区别？",
             "answer": "1、构造函数也是一个普通函数，创建方式和普通函数一样，但构造函数习惯上首字母大写；;2、构造函数和普通函数的区别在于：调用方式不一样。作用也不一样（构造函数用来新建实例对象）；;3、调用方式不一样：;a）普通函数的调用方式：直接调用 person()；;b）鼓噪函数的调用方式：需要使用new关键字来调用 new Person()。;4、构造函数的函数名与类名相同：Person()这个构造函数，Person即是函数名，也是这个对象的类名；;5、内部用this来构造属性和方法；;6、构造函数的执行流程：;a）立刻在堆内存中创建一个新的对象；;b）将新建的对象设置为函数中的this；;c）逐个执行函数中的代码；;d）将新建的对象作为返回值；;7、普通函数例子：因为没有返回值，所以为undefined；;8、构造函数例子：构造函数会马上创建一个新的对象，并将该新对象作为返回值返回；;9、用instanceof可以检查一个对象是否是一个类的实例，是则返回true；所有对象都是Object对象的后代，所以任何对象和Object做instanceof都会返回true",
             "code": ""
         },
         {
-            "id": 50,
+            "id": 57,
             "question": "同步和异步的区别？",
             "answer": "JS是单线程的，只能处理完一件事再做另一件事，但是设想如果前面一件事花费的时间特别长，我们只能一直等着他，就会阻塞下面的进程，这样程序运行时间增长，就会降低用户体验。于是所有的任务可以分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程，而进入”任务队里“（task queue）的任务，只有”任务队里“通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。;同步：按照一定的顺序去执行，执行完一个才能执行下一个。;异步：执行顺序是不确定的，由触发条件决定，什么时间执行也是不确定的，即使是定时器，异步处理可以同时执行多个。;例：拿ajax来说，同步就是当前这个ajax请求会被阻塞，直到请求返回结果，才会进入success或者error方法；异步就是当前ajax请求不会阻塞，请求发完就会交给浏览器了，后续的代码可以继续执行，如果在执行其他代码的时候这个异步请求收到回复，然后会触发异步的代码。一般都是异步的，比如你发个消息，你不需要确定对方收到了没有；而支付肯定是同步的，你得等待钱确定到账了才会让你退出当前页面。;JS的执行机制：;1、先判断js是同步的还是异步的，同步的就是同步任务，直接进入主线程处理，异步的就进入任务列表；;2、当任务列表内的异步处理达到了触发条件的时候（点击事件被点击时），就进入任务队列；;3、当所有的主线程的任务执行完毕之后，才会将任务队列里面的任务（回调函数）添加到主线程。",
             "code": "console.log(1);setTimeout(function() {console.log(2)});console.log(3); // 执行顺序： 1 3 2"
         },
         {
-            "id": 52,
+            "id": 58,
             "question": "nodejs工程化",
             "answer": "",
             "code": ""
         },
         {
-            "id": 53,
+            "id": 59,
             "question": "什么是函数式编程？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 54,
+            "id": 60,
             "question": "0.1*0.2等于多少（两个数字类型的值）？前端做计算运算时精度问题怎么处理？toFixed()是向下取整还是四舍五入？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 55,
+            "id": 61,
             "question": "==和===的区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 56,
+            "id": 62,
+            "question": "用js制作过动画效果吗？实现流程说一下",
+            "answer": "",
+            "code": ""
+        },
+        {
+            "id": 63,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 56,
+            "id": 64,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 56,
+            "id": 65,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 56,
+            "id": 66,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 56,
+            "id": 67,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 56,
+            "id": 68,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 56,
+            "id": 69,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 56,
+            "id": 70,
             "question": "",
             "answer": "",
             "code": ""
@@ -555,91 +561,91 @@
             "code": ""
         },
         {
-            "id": 27,
+            "id": 24,
             "question": "用watch监听对象怎么做？",
-            "answer": "回调函数",
-            "code": "handle:function(){}"
+            "answer": "handle中的回调函数",
+            "code": "handle:function(){},;deep: true"
         },
         {
-            "id": 24,
+            "id": 25,
             "question": "v-loader是什么？它的用途有哪些？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 25,
+            "id": 26,
             "question": "MVC、MVP和MVVM模式",
             "answer": "",
             "code": ""
         },
         {
-            "id": 26,
+            "id": 27,
             "question": "解释下Object.defineProperty()",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 28,
             "question": "Vue为什么要用虚拟DOM？它的实现原理是什么？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 29,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 30,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 31,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 32,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 33,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 34,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 35,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 36,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 37,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 38,
             "question": "",
             "answer": "",
             "code": ""
@@ -661,6 +667,18 @@
         {
             "id": 3,
             "question": "箭头函数",
+            "answer": "",
+            "code": ""
+        },
+        {
+            "id": 4,
+            "question": "",
+            "answer": "",
+            "code": ""
+        },
+        {
+            "id": 5,
+            "question": "",
             "answer": "",
             "code": ""
         }
@@ -709,25 +727,49 @@
             "code": "1、p:first-of-type // 选择其父元素的首个P元素；p:first-child // 选择其父元素的首个p元素(一定是p才行)；;2、p:last-of-type 选择其父元素的最后的一个P元素；p:last-child 选择其父元素的最后子元素(一定是P才行)；;3、p:only-of-type p:only-child；;4、nth-child(n)"
         },
         {
-            "id": 7,
+            "id": 8,
             "question": "css中两个标签同时设置上下外边距10px，最终两个标签的外边距是多少？为什么？",
             "answer": "BFC",
             "code": ""
         },
         {
-            "id": 7,
+            "id": 9,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 7,
+            "id": 10,
             "question": "",
             "answer": "",
             "code": ""
         },
         {
-            "id": 7,
+            "id": 11,
+            "question": "",
+            "answer": "",
+            "code": ""
+        },
+        {
+            "id": 12,
+            "question": "",
+            "answer": "",
+            "code": ""
+        },
+        {
+            "id": 13,
+            "question": "",
+            "answer": "",
+            "code": ""
+        },
+        {
+            "id": 14,
+            "question": "",
+            "answer": "",
+            "code": ""
+        },
+        {
+            "id": 15,
             "question": "",
             "answer": "",
             "code": ""

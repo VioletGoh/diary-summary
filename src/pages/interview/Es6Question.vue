@@ -1,5 +1,5 @@
 <template>
-    <ul v-if="list" class="list">
+    <ul v-if="list" class="interview-question">
         <li v-for="(item, i) in list" :key="i">
             <p v-if="item.question" class="question"><span>{{ item.id }}、</span>{{ item.question }}</p>
             <p v-if="item.answer && item.answer.length > 0" class="answer"><span v-for="(val, m) in item.answer" :key="m">{{ val }}</span></p>
@@ -38,26 +38,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-    .list{
-        p{
-            // padding: .4rem 0;
-        }
-        .question{
-            // font-weight: 600;
-            padding: .4rem 0;
-            cursor: pointer;
-        }
-        .answer, .code{
-            // display: none;
-            // font-weight: 200;
-            padding: 0 .8rem;
-            color: @purple;
-            background-color: @bgColor;
-            span{
-                display: block;
-                margin-bottom: .4rem;
-                line-height: 1.25rem;
-            }
-        }
-    }
+    
 </style>

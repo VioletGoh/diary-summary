@@ -47,6 +47,7 @@ a, a:hover{
     color: @black;
 }
 
+
 // common styles
 .wrapper{
     margin-left: 20rem;
@@ -54,3 +55,20 @@ a, a:hover{
 }
 
 
+// interview question common style
+.interview-question{
+    .question{
+        padding: .4rem 0;
+        cursor: pointer;
+    }
+    .answer, .code{
+        padding: 0 .8rem;
+        color: @purple;
+        background-color: @bgColor;
+        span{
+            display: block;
+            margin-bottom: .4rem;
+            line-height: 1.4rem;
+        }
+    }
+}
