@@ -10,13 +10,13 @@
             "id": 2,
             "question": "日期时间戳的使用（标准时间转换成时间戳及将时间戳转换成标准时间）",
             "answer": "标准时间转换成时间戳：",
-            "code": "const date = new Date();console.log(date.valueOf());console.log(date.getTime());console.log(Date.now());"
+            "code": "const date = new Date();console.log(date.valueOf());console.log(date.getTime());console.log(Date.now())"
         },
         {
             "id": 3,
             "question": "封装日期格式化函数",
             "answer": "",
-            "code": "const timer = new Date();function dateFormat(date, format = 'YYYY-MM-DD HH:mm:ss') {;const config = {;YYYY: date.getFullYear(),;MM: date.getMonth() + 1,;DD: date.getDate(),;HH: date.getHours(),;mm: date.getMinutes(),;ss: date.getSeconds()};for(const key in config) {;format = format.replace(key, config[key]);};return format;};console.log(dateFormat(timer, 'YYYY-MM-DD'));"
+            "code": "const timer = new Date();function dateFormat(date, format = 'YYYY-MM-DD HH:mm:ss') {;const config = {;YYYY: date.getFullYear(),;MM: date.getMonth() + 1,;DD: date.getDate(),;HH: date.getHours(),;mm: date.getMinutes(),;ss: date.getSeconds()};for(const key in config) {;format = format.replace(key, config[key]);};return format;};console.log(dateFormat(timer, 'YYYY-MM-DD'))"
         },
         {
             "id": 4,
@@ -26,13 +26,13 @@
         },
         {
             "id": 5,
-            "question": "HTTP的缓存是什么？",
+            "question": "HTTP缓存？（前端缓存可分为两大类：http缓存和浏览器缓存）",
             "answer": "",
             "code": ""
         },
         {
             "id": 6,
-            "question": "浏览器的缓存有哪些？",
+            "question": "浏览器缓存有哪些？",
             "answer": "",
             "code": ""
         },
@@ -106,7 +106,7 @@
             "id": 18,
             "question": "js判断数据类型的常用方式有哪些？",
             "answer": "1、typeof；;2、instanceof；;3、对象原型链判断方法： Object.prototype.toString.call()；;4、根据对象的constructor进行判断；;5、jQuery方法： jquery.type()；;6、有局限的判断:严格运算符===。",
-            "code": "console.log(typeof 'hello') // string;console.log([1, 2, 3)] instanceof Array) // true;console.log(Object.prototype.toString.call('123')) // [object String];function A() {};function B() {};A.prototype = new B();console.log(A.constructor === B) // false;console.log(jQuery.type(123) === 'number') // true;var a = null;typeof a // object;a === null // true;"
+            "code": "console.log(typeof 'hello') // string;console.log([1, 2, 3)] instanceof Array) // true;console.log(Object.prototype.toString.call('123')) // [object String];function A() {};function B() {};A.prototype = new B();console.log(A.constructor === B) // false;console.log(jQuery.type(123) === 'number') // true;var a = null;typeof a // object;a === null // true"
         },
         {
             "id": 19,
@@ -219,7 +219,7 @@
         {
             "id": 37,
             "question": "CommonJS、AMD、CMD和ES6的区别？",
-            "answer": "一、CommonJS：;1、基本概念：;a）为JS的表现来制定规范，因为js没有模块的功能，所以CommonJS应运而生，它希望js可以在任何地方运行，不只是浏览器中；;b）同步；;c）CommonJS规范，通过module.exports定义的，在前端浏览器中并不支持；;d）NodeJS是CommonJS规范的实现，webpack也是以CommonJS的形式来书写的；;e）CommonJS定义的模块分为：模块引用（require），模块定义（exports），模块标识（module）-----requier()用来引入外部模块；exports对象用于导出当前模块的方法或变量，唯一的导出口；module对象就代表模块本身。;注：浏览器不兼容CommonJS的根本原因，也正是在于缺少四个Node.js环境的变量：module、exports、requier、global。;2、特点：;a）对于基本数据类型，属于复制。即会被模块缓存。同时，在另一个模块可以对该模块输出的变量重新赋值；;b）对于复杂数据类型（即引用类型数据），属于浅拷贝。由于两个模块引用的对象指向同一个内存空间，因此对该模块的值做修改时会影响另一个模块）；;c）当使用require命令加载某个模块时，就会运行整个模块的代码；;d）当使用require命令加载同一个模块时，不会再执行该模块，而是取到缓存之中的值。也就是说，CommonJS模块无论加载多少次，都只会在第一次加载时运行一次，以后再加载，就返回第一次运行的结果，除非手动清除系统缓存；;e）循环加载时，属于加载时执行。即脚本代码在require的时候，就会全部执行。一旦出现某个模块被”循环加载“，就只会输出已经执行的部分，还未执行的部分不会输出。;二、AMD;1、诞生背景：;a）基于CommonJS规范的NodeJS出来以后，服务端的模块概念已经形成，很自然地，大家就想要客户端模块。而且最好两者能够兼容，一个模块不用修改，在服务器和浏览器都可以运行。但是，由于一个重大的局限，使得CommonJS规范不适用于浏览器环境。因为会有一个很大的问题：;var math = require('math');math.add(2, 3);第二行math.add(2, 3），在第一行require('math')之后运行，因此必须等math.js加载完成。也就是说，如果加载时间很长，整个应用就会停在那里等。您会注意到require是同步的。;b）这对服务端不是问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等待很长时间，浏览器处于”假死“状态。;因此，浏览器端的模块，不能采用”同步加载（synchronous）“，只能采用”异步加载（asynchronous）“。这就是AMD规范诞生的背景。;c）CommonJS主要是为了JS在后端的表现制定的，它是不适合前端的，AMD（异步模块定义）出现了，它就主要为前端JS的表现制定规范。;2、定义：AMD（异步模块定义 Asynchronous Module Definition），是require.js在推广过程中对模块定义的规范产出，require.js是对AMD这个概念的实现：;a）模块本身和模块之间的引用可以被异步的加载，是一个概念；;b）先引入模块，后使用引用模块的方法，所以我们称之为依赖前置。;3、优点：;a）包括异步的调用和本身的高扩展性；;b）它实现了解耦，模块在代码中也可以通过识别号进行查询。;4、require.js的诞生的作用：;a）实现js文件的异步加载，避免网页失去响应；;b）管理模块之间的依赖性，便于代码的编写和维护。;三、CMD;1、CMD是SeaJs在推广过程中对模块定义的规范化产出，同步模块定义，是一个概念；;2、SeaJs的作者是前淘宝UED，现支付宝前端工程师玉伯；;3、原则：依赖就近原则。所有的模块通过define定义，通过require引入依赖，并不是AMD的依赖前置，而是依赖就近原则，在哪里使用，在哪里引入，就是同步的概念，即用即返回。;四、AMD和CMD的区别：;AMD通过require.js实现；;CMD通过sea.js实现。;1、相同处：Requie.js和Sea.js都是模块加载器，倡导模块化开发理念，核心价值是让JavaScript的模块化开发变得简单自然；;2、区别：;a）定位有差异。RequireJS想成为浏览器端的模块加载器，同时也想成为Rhino/Node等环境的模块加载器。SeaJs则专注于Web浏览器端，同事通过Node扩展的方法可以很方便跑在Node环境中；;b）遵循的规范不同。RequireJS遵循AMD（异步模块定义 Asynchronous）规范，Sea.js遵循CMD（同步模块定义 Synchronous）规范。规范的不同，导致了两者API不同。Sea.js更贴近CommonJS Module1.1和Node Module规范；;c）RequireJS是依赖前置，Sea.js是依赖就近。RequireJS是先加载后执行，SeaJs是按需加载执行（AMD2.0添加了按需加载的方法）；;d）对开发调试的支持有差异。Sea.js非常专注代码的开发调试，有mocache、debug等 用于调试的插件。RequireJS无这方面的明显支持；;e）插件机制不同。RequireJS采取的是在源码中预留接口的形式，插件类型比较单一。Sea.js采取的是通用事件机制，插件类型更丰富。;总之，如果说RequireJS是Prototype类库的话，Sea.js则致力于成为jQuery类库。;五、ES6;1、ES6模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西；;2、ES6模块输出的是值的引用，输出接口动态绑定，而CommonJS输出的是值的拷贝；ES6模块编译时执行，而CommonJS模块总是在运行时加载。",
+            "answer": "一、CommonJS：;1、基本概念：;a）为JS的表现来制定规范，因为js没有模块的功能，所以CommonJS应运而生，它希望js可以在任何地方运行，不只是浏览器中；;b）同步；;c）CommonJS规范，通过module.exports定义的，在前端浏览器中并不支持；;d）NodeJS是CommonJS规范的实现，webpack也是以CommonJS的形式来书写的；;e）CommonJS定义的模块分为：模块引用（require），模块定义（exports），模块标识（module）-----requier()用来引入外部模块；exports对象用于导出当前模块的方法或变量，唯一的导出口；module对象就代表模块本身。;注：浏览器不兼容CommonJS的根本原因，也正是在于缺少四个Node.js环境的变量：module、exports、requier、global。;2、特点：;a）对于基本数据类型，属于复制。即会被模块缓存。同时，在另一个模块可以对该模块输出的变量重新赋值；;b）对于复杂数据类型（即引用类型数据），属于浅拷贝。由于两个模块引用的对象指向同一个内存空间，因此对该模块的值做修改时会影响另一个模块）；;c）当使用require命令加载某个模块时，就会运行整个模块的代码；;d）当使用require命令加载同一个模块时，不会再执行该模块，而是取到缓存之中的值。也就是说，CommonJS模块无论加载多少次，都只会在第一次加载时运行一次，以后再加载，就返回第一次运行的结果，除非手动清除系统缓存；;e）循环加载时，属于加载时执行。即脚本代码在require的时候，就会全部执行。一旦出现某个模块被”循环加载“，就只会输出已经执行的部分，还未执行的部分不会输出。;二、AMD;1、诞生背景：;a）基于CommonJS规范的NodeJS出来以后，服务端的模块概念已经形成，很自然地，大家就想要客户端模块。而且最好两者能够兼容，一个模块不用修改，在服务器和浏览器都可以运行。但是，由于一个重大的局限，使得CommonJS规范不适用于浏览器环境。因为会有一个很大的问题：;var math = require('math');math.add(2, 3);第二行math.add(2, 3），在第一行require('math')之后运行，因此必须等math.js加载完成。也就是说，如果加载时间很长，整个应用就会停在那里等。您会注意到require是同步的。;b）这对服务端不是问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等待很长时间，浏览器处于”假死“状态。;因此，浏览器端的模块，不能采用”同步加载（synchronous）“，只能采用”异步加载（asynchronous）“。这就是AMD规范诞生的背景。;c）CommonJS主要是为了JS在后端的表现制定的，它是不适合前端的，AMD（异步模块定义）出现了，它就主要为前端JS的表现制定规范。;2、定义：AMD（异步模块定义 Asynchronous Module Definition），是require.js在推广过程中对模块定义的规范产出，require.js是对AMD这个概念的实现：;a）模块本身和模块之间的引用可以被异步的加载，是一个概念；;b）先引入模块，后使用引用模块的方法，所以我们称之为依赖前置。;3、优点：;a）包括异步的调用和本身的高扩展性；;b）它实现了解耦，模块在代码中也可以通过识别号进行查询。;4、require.js的诞生的作用：;a）实现js文件的异步加载，避免网页失去响应；;b）管理模块之间的依赖性，便于代码的编写和维护。;三、CMD;1、CMD是SeaJs在推广过程中对模块定义的规范化产出，同步模块定义，是一个概念；;2、SeaJs的作者是前淘宝UED，现支付宝前端工程师玉伯；;3、原则：依赖就近原则。所有的模块通过define定义，通过require引入依赖，并不是AMD的依赖前置，而是依赖就近原则，在哪里使用，在哪里引入，就是同步的概念，即用即返回。;四、AMD和CMD的区别：;AMD通过require.js实现；;CMD通过sea.js实现。;1、相同处：Requie.js和Sea.js都是模块加载器，倡导模块化开发理念，核心价值是让JavaScript的模块化开发变得简单自然；;2、区别：;a）定位有差异。RequireJS想成为浏览器端的模块加载器，同时也想成为Rhino/Node等环境的模块加载器。SeaJs则专注于Web浏览器端，同时通过Node扩展的方法可以很方便跑在Node环境中；;b）遵循的规范不同。RequireJS遵循AMD（异步模块定义 Asynchronous）规范，Sea.js遵循CMD（同步模块定义 Synchronous）规范。规范的不同，导致了两者API不同。Sea.js更贴近CommonJS Module1.1和Node Module规范；;c）RequireJS是依赖前置，Sea.js是依赖就近。RequireJS是先加载后执行，SeaJs是按需加载执行（AMD2.0添加了按需加载的方法）；;d）对开发调试的支持有差异。Sea.js非常专注代码的开发调试，有mocache、debug等 用于调试的插件。RequireJS无这方面的明显支持；;e）插件机制不同。RequireJS采取的是在源码中预留接口的形式，插件类型比较单一。Sea.js采取的是通用事件机制，插件类型更丰富。;总之，如果说RequireJS是Prototype类库的话，Sea.js则致力于成为jQuery类库。;五、ES6;1、ES6模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西；;2、ES6模块输出的是值的引用，输出接口动态绑定，而CommonJS输出的是值的拷贝；ES6模块编译时执行，而CommonJS模块总是在运行时加载。",
             "code": "参考网址：https://blog.csdn.net/haochangdi123/article/details/80408874"
         },
         {
@@ -279,7 +279,7 @@
         {
             "id": 47,
             "question": "前端如何做代码优化？",
-            "answer": "",
+            "answer": "前端代码优化可以分为两大类：;1、页面级别优化，包含了http请求以及内联脚本位置优化；;2、代码级别优化，包含DOM操作优化，css选择符优化，图片优化以及HTML结构优化等。;3、优化的目的：在于让页面加载的更快，对用户操作响应更及时，为用户带来更好的用户体验，对于开发者来说优化能够减少页面请求数，能够节省资源。;4、优化方法：;1）http请求数，减少http请求数是很重要也是最有效的方法，可以通过以下方法来减少http请求：a）合理的设置http缓存，恰当的缓存设置可以大大减少http请求。要尽可能地让资源能够在缓存中待得更久；;b）从设计实现层面简化页面，保持页面简洁、减少资源的使用是最直接的；;c）资源合并与压缩，尽可能的将外部的脚本、样式进行合并，多个合为一个；;d）CSS Sprites，通过合并css图片，这是减少请求数的一个好办法。;2）内联脚本的位置：浏览器是并发请求的，而外链脚本在加载时却常常阻塞其他资源，例如在脚本加载完成之前，它后面的图片、样式以及其他脚本都处于阻塞状态，直到脚本加载完成后才会开始加载。如果将脚本放在比较靠前的位置，则会影响整个页面的加载速度从而影响用户体验。所以尽可能的将脚本往后挪，减少对并发下载的游戏。;3）代码级别的优化：;a）DOM操作优化：要避免在document上直接进行频繁的DOM操作，可以使用classname代替大量的内联样式修改，对于复杂的UI元素，设置position为absolute或fixed，尽量使用css动画，适当使用canvas，尽量减少css表达式的使用，使用事件代理；;b）图片优化：通过对图片的压缩来起到优化前端性能的作用；;c）css选择符：大多数人认为，浏览器对css的解析是从左往右的，事实上从右往左解析的效率更高，因为第一个id选择基本上就把查找的范围限定了。",
             "code": ""
         },
         {
@@ -333,7 +333,7 @@
         {
             "id": 56,
             "question": "js构造函数和普通函数的区别？",
-            "answer": "1、构造函数也是一个普通函数，创建方式和普通函数一样，但构造函数习惯上首字母大写；;2、构造函数和普通函数的区别在于：调用方式不一样。作用也不一样（构造函数用来新建实例对象）；;3、调用方式不一样：;a）普通函数的调用方式：直接调用 person()；;b）鼓噪函数的调用方式：需要使用new关键字来调用 new Person()。;4、构造函数的函数名与类名相同：Person()这个构造函数，Person即是函数名，也是这个对象的类名；;5、内部用this来构造属性和方法；;6、构造函数的执行流程：;a）立刻在堆内存中创建一个新的对象；;b）将新建的对象设置为函数中的this；;c）逐个执行函数中的代码；;d）将新建的对象作为返回值；;7、普通函数例子：因为没有返回值，所以为undefined；;8、构造函数例子：构造函数会马上创建一个新的对象，并将该新对象作为返回值返回；;9、用instanceof可以检查一个对象是否是一个类的实例，是则返回true；所有对象都是Object对象的后代，所以任何对象和Object做instanceof都会返回true",
+            "answer": "1、构造函数也是一个普通函数，创建方式和普通函数一样，但构造函数习惯上首字母大写；;2、构造函数和普通函数的区别在于：调用方式不一样。作用也不一样（构造函数用来新建实例对象）；;3、调用方式不一样：;a）普通函数的调用方式：直接调用 person()；;b）鼓噪函数的调用方式：需要使用new关键字来调用 new Person()。;4、构造函数的函数名与类名相同：Person()这个构造函数，Person即是函数名，也是这个对象的类名；;5、内部用this来构造属性和方法；;6、构造函数的执行流程：;a）立刻在堆内存中创建一个新的对象；;b）将新建的对象设置为函数中的this；;c）逐个执行函数中的代码；;d）将新建的对象作为返回值；;7、普通函数例子：因为没有返回值，所以为undefined；;8、构造函数例子：构造函数会马上创建一个新的对象，并将该新对象作为返回值返回；;9、用instanceof可以检查一个对象是否是一个类的实例，是则返回true；所有对象都是Object对象的后代，所以任何对象和Object做instanceof都会返回true。",
             "code": ""
         },
         {
@@ -374,7 +374,7 @@
         },
         {
             "id": 63,
-            "question": "",
+            "question": "跨域问题是怎么解决的？",
             "answer": "",
             "code": ""
         },
@@ -425,182 +425,182 @@
         {
             "id": 1,
             "question": "vue的钩子函数有哪些？",
-            "answer": "",
+            "answer": "1、beforeCreate(){}：（创建前）在Vue实例进行部分初始化后，执行该函数。数据观测和初始化事件还未开始；;2、created(){}：（创建后）完成数据观测，属性和方法的运算，初始化事件，$el属性还没有显示出来；;3、beforeMount(){}：（载入前）模板和数据相结合，即将挂载到页面上的一瞬间，之前的这个时间节点上（此时页面的内容还没有被渲染）。在挂载开始之前被调用，相关的render函数首次被调用。实例已完成以下的配置：编译模板，把data里面的数据和模板生成html。注意此时还没有挂载html到页面上；;4、（载入后）mounted(){}：页面挂载之后（此时页面已经被渲染完毕）。 在el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用。实例已完成以下的配置：用上面编译好的html内容替换el属性指向的DOM对象。完成模板中的html渲染到html页面中。此过程中进行ajax交互；;5、beforeDestroy()：（销毁前）只有当调用vm.$destroy()这个方法后，beforeDestroy()和destroy()才会执行。 在实例销毁之前调用。实例仍然完全可用；;6、destroy(){}：（销毁后） 在实例销毁之后调用。调用后，所有的事件监听器会被移除，所有的子实例也会被销毁。该钩子在服务器端渲染期间不被调用；;7、beforeUpdate(){}：（更新前）当数据发生改变时，还没有重新渲染时，该函数才会执行。 在数据更新之前调用，发生在虚拟DOM重新渲染和打补丁之前。可以在该钩子中进一步地更改状态，不会触发附加的重渲染过程；;8、updated(){}：（更新后）当数据发生改变时，其数据重新渲染后，该函数才会执行。 在由于数据更改导致的虚拟DOM重新渲染和打补丁之后调用。调用时，组件DOM已经更新，所以可以执行依赖于DOM的操作。然而在大多数情况下，应该避免在此期间更改状态，因为这可能会导致更新无限循环。该钩子在服务器端渲染期间不被调用。",
             "code": ""
         },
         {
             "id": 2,
+            "question": "vue的钩子函数中，created和mounted有什么区别？在这两个钩子函数中vue实例的data和dom是什么状态？",
+            "answer": "created主要是用来初始化数据，此时还没开始挂载，模板还没有被渲染成HTML，这时去查找页面元素是找不到的；;mounted钩子函数一般是用来向后端发起请求拿到数据以后做一些业务处理，此时el被新创建的vm.$el替换，并挂载到实例上去之后调用改钩子函数（也就是说这时模板已经渲染完成）。",
+            "code": ""
+        },
+        {
+            "id": 3,
             "question": "在vue项目中，axios请求，如果是一张页面中同事请求两个接口要怎么做？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 3,
+            "id": 4,
             "question": "vue项目中axios请求封装",
             "answer": "",
             "code": ""
         },
         {
-            "id": 4,
+            "id": 5,
             "question": "vue过滤器",
             "answer": "",
             "code": ""
         },
         {
-            "id": 5,
+            "id": 6,
             "question": "vue项目中后台管理系统路由权限怎么做？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 6,
+            "id": 7,
             "question": "vue父子组件间的传值，子组件之间的传值;",
-            "answer": "1、localStorage和sessionStorage；;2、vuex；;3、bus、发布者模式、订阅者模式（js的方法）。",
+            "answer": "1、localStorage和sessionStorage；;2、vuex；;3、ref；;4、bus、发布者模式、订阅者模式（js的方法）。",
             "code": ""
         },
         {
-            "id": 7,
+            "id": 8,
             "question": "vue项目中，如果你正在请求接口，但是突然断网了，你要怎么处理？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 8,
+            "id": 9,
             "question": "vue项目中请求数据时，怎么切换到不同的环境中（Dev、Sat、uit、prod），接口请求怎么封装的？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 9,
+            "id": 10,
+            "question": "解释下Object.defineProperty()",
+            "answer": "Object.defineProperty()方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。;get：属性的getter函数；;set：属性的setter函数。;obj: 要定义属性的对象；;prop：要定义或修改的属性的名称或Symbol；;descriptor：要定义或修改的属性描述符；;返回值：被传递给函数的对象。",
+            "code": "Object.defineProperty(obj, prop, descriptor)"
+        },
+        {
+            "id": 11,
             "question": "vue数据双向绑定的实现原理",
             "answer": "",
             "code": ""
         },
         {
-            "id": 10,
-            "question": "在vue组件中，为什么data要用function返回对象？",
-            "answer": "",
-            "code": ""
-        },
-        {
-            "id": 11,
+            "id": 12,
             "question": "Vue.nextTick()是什么？它的使用原理是什么？什么时候需要用到它？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 12,
+            "id": 13,
             "question": "vue中nextTick和setTimeout哪个先执行？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 13,
+            "id": 14,
             "question": "watch监听对象和属性的区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 14,
+            "id": 15,
             "question": "vue路由跳转有几种方式？有什么区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 15,
+            "id": 16,
             "question": "vue-router传参和监听",
             "answer": "",
             "code": ""
         },
         {
-            "id": 16,
+            "id": 17,
             "question": "$route和$router的区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 17,
+            "id": 18,
             "question": "讲一下vuex",
             "answer": "",
             "code": ""
         },
         {
-            "id": 18,
+            "id": 19,
             "question": "vuex中有一个状态，A和B模块同时调用，在A模块对这个状态进行修改而不影响到B模块（B模块获取到的状态值是A模块修改之前的原始值），要怎么处理？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 19,
+            "id": 20,
             "question": "vue中v-常用指令有哪些？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 20,
+            "id": 21,
             "question": "为什么要避免v-if和v-for用在一起？它俩的优先级",
             "answer": "",
             "code": ""
         },
         {
-            "id": 21,
-            "question": "vue中key值的作用？",
-            "answer": "",
-            "code": ""
+            "id": 22,
+            "question": "Vue中key值的作用？",
+            "answer": "1、key的特殊属性主要用在vue的虚拟DOM算法，在新旧nodes对比时辨识VNodes。如果不使用key，vue会使用一种最大限度减少动态元素并且尽可能的尝试就地修改/复用相同类型元素的算法；;2、而使用key时，它会基于key的变化重新排列元素顺序，并且会移除key不存在的元素。;3、有相同父元素的子元素必须有独特的key。重复的key会造成渲染错误。;4、它也可以用于强制替换元素/组件而不是重复使用它。当你遇到如下场景时它可能会很有用：;a）完整的触发组件的生命周期钩子；;b）触发过度。;注：当text发生改变时，<span>总是会被替换而不是被修改，因此会触发过度。",
+            "code": "<transition>;<span :key='text'>{{ text }}</span>;</transition>"
         },
         {
-            "id": 22,
+            "id": 23,
             "question": "vue中keep-alive组件的作用？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 23,
+            "id": 24,
             "question": "watch的作用是什么？它和computed有什么区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 24,
+            "id": 25,
             "question": "用watch监听对象怎么做？",
             "answer": "handle中的回调函数",
             "code": "handle:function(){},;deep: true"
         },
         {
-            "id": 25,
+            "id": 26,
             "question": "v-loader是什么？它的用途有哪些？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 26,
+            "id": 27,
             "question": "MVC、MVP和MVVM模式",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
-            "question": "解释下Object.defineProperty()",
-            "answer": "",
-            "code": ""
-        },
-        {
             "id": 28,
-            "question": "Vue为什么要用虚拟DOM？它的实现原理是什么？",
+            "question": "在vue组件中，为什么data要用function返回对象？",
             "answer": "",
             "code": ""
         },
         {
             "id": 29,
-            "question": "",
+            "question": "Vue为什么要用虚拟DOM？它的实现原理是什么？",
             "answer": "",
             "code": ""
         },
         {
             "id": 30,
-            "question": "",
-            "answer": "",
-            "code": ""
+            "question": "vue修饰符有哪些？",
+            "answer": "1、.lazy：v-model不用多说，输入框改变，这个数据就会改变，lazy这个修饰符会在光标离开input框才会更新数据；;2、.trim：输入框过滤收尾的空格；;3、.number：先输入数字就会限制输入只能是数字，先字符串就相当于没有加number，注意，不是输入框不能输入字符串，是这个数据是数字；;4、.stop：阻止事件冒泡，相当于调用了event.stopPropagation()方法；;5、.prevent：阻止默认行为，相当于调用了event.preventDefault()方法，比如表单的提交、a标签的跳转就是默认事件；;6、.self：只有元素本身触发时才触发方法，就是只有点击元素本身才会触发。比如一个div里面有一个按钮，div和按钮都有事件，我们点击按钮，div绑定的方法也会触发，如果div的click加上self，只有点击到div的时候才会触发，变相的算是阻止冒泡；;7、.once：只能用一次，无论点击几次，执行一次之后都不会在执行；;8、.capture：事件的完整机制是捕获-目标-冒泡，事件触发是目标往外冒泡；;9、.passive：每次滚动都会有一个默认事件触发，加了这个就是告诉浏览器，不需要查询，不需要触发这个默认事件preventDefault；;10、.native：组件绑定当前组件的事件是不会触发的，需要用native才能触发；;11、鼠标.left、.right、.middle：就是鼠标点击的时候触发；;12、.keyCode：监听按键的指令；;13、.exact：系统修饰键，只有按着这个键然后用鼠标点击才会触发；;14、.sync：对prop进行双向绑定。",
+            "code": "<input type='text' v-model.lazy='value'>;<input type='text' v-model.trim='value'>;<input type='text' v-model.number='value'>;<button @click.stop='test'>test</button>;<a @click.prevent='test'>test</a>;<div @click.self='test'></div>;<div @click.once='test'></div>;<div @click='test(1)'><button @click='test(2)'>test</button></div> // 顺序是2 1，capture的作用就是让这个顺序相反：;<div @click.capture='test(1)'><button @click.capture='test(2)'>test</button></div>;<div v-on:scroll.passive='onScroll'>...</div>;<My-component @click='shout(3)'></My-component>;<button @click.right='test'>test</button>;<input type='text' @keyup.enter='test(1)'>;<button @click.enter='test(1)'>test</button>;<button @click.exact='onClick'>A</button>;<fa-comp :fatest.sync='test'></fa-comp> // 父组件;this.$emit('update:fatest,sontest) //子组件"
         },
         {
             "id": 31,
@@ -610,7 +610,7 @@
         },
         {
             "id": 32,
-            "question": "",
+            "question": "路由守卫",
             "answer": "",
             "code": ""
         },
@@ -646,6 +646,12 @@
         },
         {
             "id": 38,
+            "question": "",
+            "answer": "",
+            "code": ""
+        },
+        {
+            "id": 39,
             "question": "",
             "answer": "",
             "code": ""

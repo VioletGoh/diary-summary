@@ -1,43 +1,26 @@
 <template>
-    <!-- <div> -->
-        <ul v-if="list" class="interview-question">
-            <li v-for="(item, i) in list" :key="i">
-                <p v-if="item.question" class="question"><span>{{ item.id }}、</span>{{ item.question }}</p>
-                <p v-if="item.answer && item.answer.length > 0" class="answer"><span v-for="(val, m) in item.answer" :key="m">{{ val }}</span></p>
-                <p v-if="item.code && item.code.length > 0" class="code"><span v-for="(val, m) in item.code" :key="m">{{ val }}</span></p>
-            </li>
-        </ul>
-    <!-- </div> -->
+    <ul v-if="interviewQuestionJs && interviewQuestionJs.length > 0" class="interview-question">
+        <li v-for="item in interviewQuestionJs" :key="item.id">
+            <p v-if="item.question" class="question"><span>{{ item.id }}、</span>{{ item.question }}</p>
+            <p v-if="item.answer && item.answer.length > 0 && item.answer[0] != ''" class="answer"><span v-for="(val, m) in item.answer" :key="m">{{ val }}</span></p>
+            <p v-if="item.code && item.code.length > 0 && item.code[0] != ''" class="code"><span v-for="(val, m) in item.code" :key="m">{{ val }}</span></p>
+        </li>
+    </ul>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import { handleArray } from '@/common/handleArray';
 
 export default {
     data() {
         return {
-            list: [],
             isShow: true
         }
     },
-    mounted() {
-        this.getData();
-    },
     computed: {
-        ...mapState(['interviewQuestionData'])
+        ...mapState(['interviewQuestionJs'])
     },
     methods: {
-        getData() {
-            for(let key in this.interviewQuestionData) {
-                // console.log(key);
-                // console.log(this.interviewQuestionData[key]);
-                if(key == 'Js') {
-                    console.log(this.interviewQuestionData[key]);
-                    this.list = handleArray(this.interviewQuestionData[key]);
-                }
-            }
-        },
         showAnswer(index) {
             this.isShow = !this.isShow;
             console.log(index);

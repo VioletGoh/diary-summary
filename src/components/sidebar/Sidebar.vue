@@ -5,8 +5,8 @@
         </ul> -->
         <ul>
             <router-link
-                v-for="(val, i) in interSubmenu"
-                :key="i"
+                v-for="val in interSubmenu"
+                :key="val"
                 :to="{name: `${val}Question`}"
                 tag="li"
             >

@@ -1,0 +1,1 @@
+export const SET_INTERVIEW = 'SET_INTERVIEW';

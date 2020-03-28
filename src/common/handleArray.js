@@ -1,5 +1,5 @@
 /**
- * make a string that the answer and the code to an array, then return a new array
+ * Make a string that the answer and the code to an Array, then return a new Array. When the new Array's value is null, it'll return code: [0: '']
  * @param {*} array
  */
 export function handleArray(array) {

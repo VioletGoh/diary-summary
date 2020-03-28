@@ -21,15 +21,16 @@ export default {
         this.getInterviewData();
     },
     methods: {
-        ...mapMutations(['mutationInterviewData']),
+        ...mapMutations({
+            setInterview: 'SET_INTERVIEW'
+        }),
         getInterviewData() {
             this.$axios.get('api/interview.json').then(res => {
                 const data = res.data;
-                console.log(data);
                 if(data) {
                     this.sidebar = Object.keys(data).map(val => val);
-                    this.mutationInterviewData(data); // get the interview data
-                    // this.$store.commit('mutationInterviewData', data); // the second function to commit mutation's data
+                    this.setInterview(data); // get the interview data
+                    // this.$store.commit('setInterview', data); // the second function to commit mutation's data
                 }
             }).catch(err => {
                 console.log(err);
