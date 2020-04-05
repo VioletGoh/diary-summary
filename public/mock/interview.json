@@ -94,7 +94,7 @@
             "id": 16,
             "question": "js数据类型有哪些？它们有什么区别？",
             "answer": "1、原始值：Number、String、Boolean、undefined、null、Symbol（ES6新增）；;2、引用值：Array、Object、function、date、Regexp。;3、区别：;a）基本类型的值是不可变的，在从一个变量向另一个变量赋值基本类型时，会在该变量上创建一个新值，然后再把该值赋值到为新变量分配的位置上。而引用类型的值是可变的，当一个变量向另一个变量赋值引用类型的值时，同样也会将存储在变量中的对象的值赋值一份到为新变量分配的空间中。即基本类型是传值，而引用类型是传址。;b）基本类型的比较是值的比较：只要它们的值相等它们就相等；引用类型的比较是引用的比较。;c）基本类型的变量是存放在栈区的（栈区指内存里的栈内存）；引用类型的值是同时保存在栈内存和堆内存中的对象。",
-            "code": "var a = 10;var b = a;a++;console.log(a) // 11;console.log(b) // 10;var a = [1,2,3];var b = a;b.push(4);console.log(a) //[1,2,3,4];console.log(b) // [1,2,3,4]"
+            "code": "var a = 10;var b = a;a++;console.log(a) // 11;console.log(b) // 10;var a = [1,2,3];var b = a;b.push(4);console.log(a) // [1,2,3,4];console.log(b) // [1,2,3,4]"
         },
         {
             "id": 17,
@@ -106,12 +106,12 @@
             "id": 18,
             "question": "js判断数据类型的常用方式有哪些？",
             "answer": "1、typeof；;2、instanceof；;3、对象原型链判断方法： Object.prototype.toString.call()；;4、根据对象的constructor进行判断；;5、jQuery方法： jquery.type()；;6、有局限的判断:严格运算符===。",
-            "code": "console.log(typeof 'hello') // string;console.log([1, 2, 3)] instanceof Array) // true;console.log(Object.prototype.toString.call('123')) // [object String];function A() {};function B() {};A.prototype = new B();console.log(A.constructor === B) // false;console.log(jQuery.type(123) === 'number') // true;var a = null;typeof a // object;a === null // true"
+            "code": "console.log(typeof 'hello') // string;console.log(typeof Array) // object;console.log([1, 2, 3)] instanceof Array) // true;console.log(Object.prototype.toString.call('123')) // [object String];function A() {};function B() {};A.prototype = new B();console.log(A.constructor === B) // false;console.log(jQuery.type(123) === 'number') // true;var a = null;typeof a // object;a === null // true"
         },
         {
             "id": 19,
             "question": "string和array之间的转换（PS：类型转换技巧）",
-            "answer": "",
+            "answer": "1、字符串转数组：.split()；;2、数组转字符串：.join()、.toString()；;",
             "code": ""
         },
         {
@@ -122,289 +122,289 @@
         },
         {
             "id": 21,
-            "question": "js数组升降序排序",
-            "answer": "",
-            "code": ""
+            "question": "js字符串截取函数",
+            "answer": "在js中，字符串截取函数有常用的三个slice()、substring()、substr()。;1、slice(start, [end])：第一个参数代表开始位置，第二个参数代表结束位置的下一个位置，截取出来的字符串长度为第二个参数与第一个参数之间的差；若参数值为负数，则将该值加上字符串长度后转为正直；若第一个参数等于大于第二个参数，则返回空字符串；;2、substring(start, [end])：第一个参数代表开始位置，第二个参数代表结束位置的下一个位置；若参数值为负数，则将该值转为0；两个参数中，去较小值作为开始位置，截取出来的字符串的长度为较大值与较小值之间的差；;3、substr(start, [length])：第一个参数代表开始位置，第二个参数代表截取的长度。",
+            "code": "var str = 'helloworld';console.log(str.slice(0)) // helloworld;console.log(str.slice(3)) // loworld;console.log(str.slice(1, 5)) // ello;console.log(str.substring(2, 6)) // llow;console.log(str.substr(1, 5)) // llow"
         },
         {
             "id": 22,
-            "question": "js数组去重的常用方法有哪些？",
-            "answer": "",
-            "code": ""
+            "question": "js数组升降序排序",
+            "answer": "升序（asc），降序（desc）",
+            "code": "function sortArray(array, type = 'asc') {;return array.sort((a, b) => type == 'asc' ? a - b : b - a);};console.log(sortArray([5, 1, 18, 35, 99), 'desc')) // 99 35 18 5 1"
         },
         {
             "id": 23,
+            "question": "js数组去重的常用方法有哪些？",
+            "answer": "1、利用Map数据结构去重；;2、利用filter；;3、利用递归去重；;4、利用indexOf去重；;5、利用hasOwnProperty；;6、利用includes；;7、利用for嵌套for，然后splice去重；;8、利用ES6 Set去重；;9、[...new Set(arr)]；;10、利用sort()；;11、利用reduce+includes。",
+            "code": "var arr = [1, 1, 'true', 'true', 10, 10, false, false, undefined, undefined];function unique(arr) {;if (!Array.isArray(arr) {;console.log('type error!');return;};var array = [];for(var i = 0；i<arr.length；i++) {;if(array.indexof(arr[i]) === -1) {;array.push(arr[i]);};return array;};console.log(unique(arr))"
+        },
+        {
+            "id": 24,
             "question": "jQuery数组去重的方法有哪些？",
             "answer": "$.unique()",
             "code": "let arr = [1, 2, 2, 3, 5, 5];console.log($.unique(arr))"
         },
         {
-            "id": 24,
+            "id": 25,
             "question": "数组的常用方法",
             "answer": "",
             "code": ""
         },
         {
-            "id": 25,
+            "id": 26,
             "question": "数组reduce()方法",
             "answer": "",
             "code": ""
         },
         {
-            "id": 26,
+            "id": 27,
             "question": "for、forEach和map的区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 27,
+            "id": 28,
             "question": "查找元素：indexOf()、lastIndexOf()、includes()、find()、findIndex()",
             "answer": "",
             "code": ""
         },
         {
-            "id": 28,
+            "id": 29,
             "question": "document.write()和innerHTML的区别？",
             "answer": "1、document.write是直接将内容写入页面的内容流，会导致页面全部重绘；;2、innerHTML将内容写入某个DOM节点，不会导致页面全部重绘。",
             "code": ""
         },
         {
-            "id": 29,
+            "id": 30,
             "question": "document load和document ready的区别？",
             "answer": "页面加载完成有两种事件：;1、load是当前页面所有资源全部加载完成后（包括DOM文档树，css文件，js文件，图片资源等），执行一个函数问题：如果图片资源较多，加载时间较长，onload后等待执行的函数需要等待较长时间，所以一些效果可能受到影响；;2、$(document).ready()是当DOM文档树加载完成后执行一个函数（不包含图片，css等）所以会比load较快执行，在原生的js中不包括ready()这个方法，只有load方法也就是onload事件。",
             "code": ""
         },
         {
-            "id": 30,
-            "question": "事件委托是什么？",
-            "answer": "",
-            "code": ""
-        },
-        {
             "id": 31,
-            "question": "事件冒泡是什么？它和事件委托有什么区别？",
-            "answer": "",
-            "code": ""
+            "question": "事件委托是什么？",
+            "answer": "一、原理：事件冒泡机制；;二、优点：;1、大量减少内存占用，减少事件注册；;2、新增元素实现动态绑定事件；;三、实现方式：;1、可用addEventListener() //所有主流浏览器，除了IE8及更早IE版本；;语法：element.addEventListener(event, function, useCapture);event：必须，字符串，指定事件名，如click；;function：必须，指定要事件触发时执行的函数；;useCapture：可选，布尔值，指定事件是否咋捕获或冒泡阶段执行（true：事件句柄在捕获阶段执行；false：默认，事件句柄在冒泡阶段执行）；;2、移除事件监听：element.removeEventListener(event, function, useCapture)。移除时传入的参数与添加处理程序时使用的参数相同。这也意味着通过addEventListener()添加的匿名函数无法移除。3、功能：可多次绑定同一个事件，并且不会覆盖上一个事件。;4、attachEvent() //IE8及IE更早版本；;element.attachEvent(event, function);实例：给所有的li绑定点击事件，极为繁琐，这时候需要用到事件代理（给li的父元素ul绑定点击事件）。",
+            "code": "let ul = document.querySelector('ul');ul.addEventListener('click', function(e) {;if(e.target && e.target.tagName.toLowerCase() == 'li') { //检查事件源e.target是否为li;console.log(e.target.innerHTML);})"
         },
         {
             "id": 32,
-            "question": "阻止事件冒泡和默认行为",
-            "answer": "",
-            "code": ""
+            "question": "事件捕获",
+            "answer": "捕获型事件（event capturing）：事件从最不精确的对象（document对象）开始触发，然后到最精确（也可以在窗口级别捕获事件，不过必须由开发人员特别指定）。;事件捕获和事件冒泡属于两个相反的过程，这里可以比喻成：当你把一个可以漂浮在水面上的物品，使劲向水里砸下去，它会首先有一个下降的过程，这个过程就可以理解为从最顶层向事件发生的最具体元素（目标点）的捕获过程；之后由于浮力大于物体自身的重力，物体会在达到最低点（最具体元素）之后漂浮到水面上，这个过程相对于事件捕获是一个回溯的过程，即事件冒泡。;;捕获过程：从window到text。",
+            "code": "window → document → body → div → (text)"
         },
         {
             "id": 33,
+            "question": "事件冒泡？它和事件委托有什么区别？",
+            "answer": "冒泡型事件：事件按照从最特定的事件目标到最不特定的事件目标（document对象）的顺序触发。;冒泡过程：从text到window。",
+            "code": "window ← document ← body ← div ← (text)"
+        },
+        {
+            "id": 34,
+            "question": "阻止事件冒泡和默认行为",
+            "answer": "1、阻止事件冒泡：;a）event.stopPropagation() // 只阻止事件往上冒泡，不阻止事件本身；;b）return false // 不仅阻止了事件往上冒泡，还阻止了事件本身；;c）window.event.cancelBubble = true // IE浏览器;2、阻止默认行为：;a）event.preventDefault();b）window.event.returnValue = false // IE浏览器",
+            "code": ""
+        },
+        {
+            "id": 35,
             "question": "null和undefined的区别？",
             "answer": "1、null：null类型，代表“空值”，代表一个空对象指针，使用typeof运算得到‘object’，所以你可以认为它是一个特殊的对象值；;2、undefined：undefined类型，当声明了一个变量未初始化时，得到的就是undefined。",
             "code": ""
         },
         {
-            "id": 34,
+            "id": 36,
             "question": "setTimeout()和setInterval()的区别？",
             "answer": "1、setTimeout()在规定的时间后执行完某个操作后就停止了，而setInterval()则可以在每隔指定的毫秒数循环调用函数或表达式，直到clearInterval把它清除。;2、区别：setTimeout()只执行一次，而setInterval可以多次调用;",
             "code": ""
         },
         {
-            "id": 35,
+            "id": 37,
             "question": "什么是防抖和节流？有什么区别？怎么实现？",
             "answer": "1、防抖（debounce）：触发高频事件后n秒内函数只会执行一次，如果n秒内高频事件再次被触发，则重新计算时间。举例：就好像在百度搜索时，每次输入之后都有联想词弹出，这个控制联想词的方法就不可能是输入框内容一改变就触发的，他一定是你结束输入一段时间之后才会触发。;2、节流（thorttle）：高频事件触发，单子n秒内只会执行一次，所以节流会稀释函数的执行频率。举例：预定一个函数只有在大于等于执行周期时才执行，周期内调用不执行，就好像你在淘宝抢购某一件限量热卖商品时，你不断点刷新购买，可是总有一段时间你点上是没有效果，这里就用到了节流，就是怕点的太快导致系统出现bug。;3、区别：防抖动是将多次执行变为最后一次执行，节流是将多次执行变成每隔一段时间执行。",
             "code": ""
         },
         {
-            "id": 36,
+            "id": 38,
             "question": "js中require和import的区别？",
-            "answer": "",
+            "answer": "ES6标准发布后，module成为标准，标准使用是以export指令导出接口，以import引入模块。但是在我们一贯的node模块中，我们依然采用的是CommonJS规范，使用require引入模块，使用module.exports导出接口。;1、require：它相当于module.exports的传送门，module.exports后面的内容是什么，require的结果就是什么，对象、数字、字符串、函数......再把require的结果赋值给某个变量，相当于把require和module.exports进行平行空间的位置重叠。require理论上可以运用在代码的任何地方，甚至不需要赋值给某个变量之后再使用。;2、import它是编译时的（require是运行时的），它必须放在文件开头，而且使用格式也是确定的，不容置疑。它不会将整个模块运行后赋值给某个变量，而是只选择import的接口进行编译，这样在性能上比require好很多。require是复制过程，import是解构过程。;3、require和import的区别：;a）require引入基础数据类型时，属于复制该变量；;b）require引入复杂数据类型时，数据浅拷贝该对象；;c）出现模块之间的循环引用时，会输出已经执行的模块，而未执行的模块不输出；;d）CommonJS模块的默认export的是一个对象，即使导出的是基础数据类型。;4、require中exports和module.exports的区别：;a）module.exports初始值为一个空对象{}；;b）exports是指向的module.exports的引用；;c）require()返回的是module.exports而不是exports。",
             "code": ""
         },
         {
-            "id": 37,
+            "id": 39,
             "question": "CommonJS、AMD、CMD和ES6的区别？",
             "answer": "一、CommonJS：;1、基本概念：;a）为JS的表现来制定规范，因为js没有模块的功能，所以CommonJS应运而生，它希望js可以在任何地方运行，不只是浏览器中；;b）同步；;c）CommonJS规范，通过module.exports定义的，在前端浏览器中并不支持；;d）NodeJS是CommonJS规范的实现，webpack也是以CommonJS的形式来书写的；;e）CommonJS定义的模块分为：模块引用（require），模块定义（exports），模块标识（module）-----requier()用来引入外部模块；exports对象用于导出当前模块的方法或变量，唯一的导出口；module对象就代表模块本身。;注：浏览器不兼容CommonJS的根本原因，也正是在于缺少四个Node.js环境的变量：module、exports、requier、global。;2、特点：;a）对于基本数据类型，属于复制。即会被模块缓存。同时，在另一个模块可以对该模块输出的变量重新赋值；;b）对于复杂数据类型（即引用类型数据），属于浅拷贝。由于两个模块引用的对象指向同一个内存空间，因此对该模块的值做修改时会影响另一个模块）；;c）当使用require命令加载某个模块时，就会运行整个模块的代码；;d）当使用require命令加载同一个模块时，不会再执行该模块，而是取到缓存之中的值。也就是说，CommonJS模块无论加载多少次，都只会在第一次加载时运行一次，以后再加载，就返回第一次运行的结果，除非手动清除系统缓存；;e）循环加载时，属于加载时执行。即脚本代码在require的时候，就会全部执行。一旦出现某个模块被”循环加载“，就只会输出已经执行的部分，还未执行的部分不会输出。;二、AMD;1、诞生背景：;a）基于CommonJS规范的NodeJS出来以后，服务端的模块概念已经形成，很自然地，大家就想要客户端模块。而且最好两者能够兼容，一个模块不用修改，在服务器和浏览器都可以运行。但是，由于一个重大的局限，使得CommonJS规范不适用于浏览器环境。因为会有一个很大的问题：;var math = require('math');math.add(2, 3);第二行math.add(2, 3），在第一行require('math')之后运行，因此必须等math.js加载完成。也就是说，如果加载时间很长，整个应用就会停在那里等。您会注意到require是同步的。;b）这对服务端不是问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等待很长时间，浏览器处于”假死“状态。;因此，浏览器端的模块，不能采用”同步加载（synchronous）“，只能采用”异步加载（asynchronous）“。这就是AMD规范诞生的背景。;c）CommonJS主要是为了JS在后端的表现制定的，它是不适合前端的，AMD（异步模块定义）出现了，它就主要为前端JS的表现制定规范。;2、定义：AMD（异步模块定义 Asynchronous Module Definition），是require.js在推广过程中对模块定义的规范产出，require.js是对AMD这个概念的实现：;a）模块本身和模块之间的引用可以被异步的加载，是一个概念；;b）先引入模块，后使用引用模块的方法，所以我们称之为依赖前置。;3、优点：;a）包括异步的调用和本身的高扩展性；;b）它实现了解耦，模块在代码中也可以通过识别号进行查询。;4、require.js的诞生的作用：;a）实现js文件的异步加载，避免网页失去响应；;b）管理模块之间的依赖性，便于代码的编写和维护。;三、CMD;1、CMD是SeaJs在推广过程中对模块定义的规范化产出，同步模块定义，是一个概念；;2、SeaJs的作者是前淘宝UED，现支付宝前端工程师玉伯；;3、原则：依赖就近原则。所有的模块通过define定义，通过require引入依赖，并不是AMD的依赖前置，而是依赖就近原则，在哪里使用，在哪里引入，就是同步的概念，即用即返回。;四、AMD和CMD的区别：;AMD通过require.js实现；;CMD通过sea.js实现。;1、相同处：Requie.js和Sea.js都是模块加载器，倡导模块化开发理念，核心价值是让JavaScript的模块化开发变得简单自然；;2、区别：;a）定位有差异。RequireJS想成为浏览器端的模块加载器，同时也想成为Rhino/Node等环境的模块加载器。SeaJs则专注于Web浏览器端，同时通过Node扩展的方法可以很方便跑在Node环境中；;b）遵循的规范不同。RequireJS遵循AMD（异步模块定义 Asynchronous）规范，Sea.js遵循CMD（同步模块定义 Synchronous）规范。规范的不同，导致了两者API不同。Sea.js更贴近CommonJS Module1.1和Node Module规范；;c）RequireJS是依赖前置，Sea.js是依赖就近。RequireJS是先加载后执行，SeaJs是按需加载执行（AMD2.0添加了按需加载的方法）；;d）对开发调试的支持有差异。Sea.js非常专注代码的开发调试，有mocache、debug等 用于调试的插件。RequireJS无这方面的明显支持；;e）插件机制不同。RequireJS采取的是在源码中预留接口的形式，插件类型比较单一。Sea.js采取的是通用事件机制，插件类型更丰富。;总之，如果说RequireJS是Prototype类库的话，Sea.js则致力于成为jQuery类库。;五、ES6;1、ES6模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS和AMD模块，都只能在运行时确定这些东西；;2、ES6模块输出的是值的引用，输出接口动态绑定，而CommonJS输出的是值的拷贝；ES6模块编译时执行，而CommonJS模块总是在运行时加载。",
             "code": "参考网址：https://blog.csdn.net/haochangdi123/article/details/80408874"
         },
         {
-            "id": 38,
+            "id": 40,
             "question": "ajax和axios的底层实现原理是什么？它俩的区别是什么？",
             "answer": "原理：。;区别：ajax技术实现了网页的局部数据刷新，axios实现了对ajax的封装（axios是通过promise实现对ajax技术的一种封装，就像jQuery实现ajax封装一样）。axios是ajax，ajax不止axios。",
             "code": ""
         },
         {
-            "id": 39,
+            "id": 41,
             "question": "axios的封装",
             "answer": "",
             "code": ""
         },
         {
-            "id": 40,
+            "id": 42,
             "question": "闭包是什么？闭包的作用？闭包会不会造成内存泄漏？怎么优化，避免造成内存泄漏？",
             "answer": "我觉得闭包是由内部和外部组成的，内部就是内部函数，外部就是局部变量。这样的作用是为了间接的访问一个变量，或者是把一个局部变量隐藏起来。比如说做了一个抽奖的功能，如果脱离后端进行次数校验的话，只是在前端尽可能的考虑每个人的次数安全，我不想把这个count暴露出来，但是其他的方法又访问不到怎么办，这时候我就考虑使用闭包，暴露一个函数，间接访问这个局部变量。;作用：;1、访问其他函数内部变量；;2、保护变量不被内存回收机制回收；;3、避免全局变量被污染，方便调用上下文的局部变量，加强封装性。;缺点：闭包长期占用内存，内存消耗很大，可能导致内存泄漏（如若操作不当，可能会导致内存泄漏）。;如何避免闭包引起的内存泄漏：;1、在退出函数之前，将不使用的局部变量全部删除，可以将变量赋值为null；;2、避免变量的循环赋值和引用；;3、理由jQuery释放自身指定的所有事件处理程序。",
             "code": ""
         },
         {
-            "id": 41,
+            "id": 43,
             "question": "什么是内存泄漏？",
             "answer": "首先，需要了解浏览器自身的内存回收机制。每个浏览器会有自己的一套回收机制，当分配出去的内存不使用的时候便会回收。内存泄漏的根本原因就是你的代码中分配了一些‘忘的’内存，浏览器无法进行回收，如果这些‘顽固的’内存还在一直不停的分配就会导致后面所用内存不足，造成泄漏。因为闭包就是能够访问外部函数变量的一个函数，而函数是必须保存在内存中的对象，所以位于函数执行上下文中的所有变量也需要保存在内存中，这样就不会被回收，如果一旦循环引用或创建闭包，就会占用大量内存，可能 引起内存泄漏）。",
             "code": ""
         },
         {
-            "id": 42,
+            "id": 44,
             "question": "垃圾回收机制",
             "answer": "",
             "code": ""
         },
         {
-            "id": 43,
+            "id": 45,
             "question": "原型链是什么？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 44,
+            "id": 46,
             "question": "环境和作用域是什么？作用域的分类有哪些？",
             "answer": "拿城市来举例子，城市会有一系列的设施（如医院、学校、超市等）为人们服务，这些设施有作用范围，比如一个在上海的人不可能特地跑到北京的超市去买东西，那么这里的作用范围就等于作用域。环境可以理解为一块内存的作用域（定义的全局变量就算不使用也是不会被销毁和回收的，会一直存在着（js语言的特殊性））",
             "code": ""
         },
         {
-            "id": 45,
+            "id": 47,
             "question": "js继承的几种方式和优缺点？",
-            "answer": "",
-            "code": ""
+            "answer": "1、原型链继承;a）实现方式：将子类的原型链指向父类的对象实例；;b）原理：子类实例child的__proto__指向Child的原型链prototype，而Child.prototype指向Parent类的对象实例，该父类对象实例的__proto__指向Parent.prototype，所以Child可以继承Parent的构造函数属性、方法和原型链属性、方法；;c）优点：可继承构造函数的属性，父类构造函数的属性，父类原型的属性；;d）缺点：无法向父类构造函数传参；且所有实例共享父类实例的属性，若父类共有属性为引用类型，一个子类实例更改父类构造函数共有属性时会导致继承的公有属性发生变化；;2、构造函数继承;a）实现方式：在子类构造函数中使用call或者apply劫持父类构造函数方法，并传入参数；;b）原理：使用擦了或apply更改子类函数的作用域，使this执行父类构造函数，子类因此可以继承父类共有属性；;c）优点：可解决原型链继承的缺点；;d）缺点：不可继承父类的原型链方法，构造函数不可复用；;3、组合继承（常用）;a）原理：综合使用构造函数继承和原型链继承；;b）优点：可继承父类原型上的属性，且可传参；每个新实例引入的构造函数是私有的；;c）缺点：会执行两次父类的构造函数，消耗较大内存，子类的构造函数会代替原型上的那个父类构造函数；;4、原型式继承;a）原理：类似Object.create，用一个函数包装一个对象，然后返回这个函数的调用，这个函数就变成了可以随意增添属性的实例或对象，结果是将子类的__proto__指向父对象；;b）缺点：共享引用类型；;5、寄生式继承;a）原理：二次封装原型式继承，并拓展；;b）优点：可添加新的属性和方法；;6、寄生组合式继承;a）原理：改进组合继承，利用寄生式继承的思想继承原型。",
+            "code": "// 原型式继承;function Parent() {;this.name = 'parent';this.list = ['a'];};Parent.prototype.sayHi = function(){;console.log('hi');};function Child(){};Child.prototype = new Parent();var child = new Child();console.log(child.name);child.sayHi();var a = new Child();var b = new Child();a.list.push('b');console.log(b.list) // ['a', 'b'];//构造函数继承;function Parent(name, id) {;this.id = id;this.name = name;this.printName = function() {;console.log(this.name);};};Parent.prototype.sayName = function() {;console.log(this.name);};function Child(name, id) {;Parent.call(this, name, id);// Parent.apply(this, arguments);};var child = new Child('jin', '1');child.printName(); // jin;child.sayName() // Error;//组合继承;function Parent(name, id){;this.id = id;this.name = name;this.list = ['a'];this.printName = function() {;console.log(this.name);};};Parent.prototype.sayName = function(){;console.log(this.name);};function Child(name, id){;Parent.call(this, name, id);// Parent.apply(this, arguments);};Child.prototype = new Parent();var child = new Child('jin', '1');child.printName(); // jinchild.sayName() // jinvar a = new Child();var b = new Child();a.list.push('b');console.log(b.list); // ['a']"
         },
         {
-            "id": 46,
+            "id": 48,
             "question": "var、let和const的区别？",
             "answer": "1、var定义变量会有变量提升，因为浏览器会先将我们的代码进行解析，var只有全局作用域和函数作用域，没有块级作用域的概念；;2、而如果用let来定义变量则不存在变量提升，但是会有暂时性死区（TDC），所以用let声明的变量必须在声明之后再来使用，let只有块级作用域，由{}包括起来；;3、const和let的作用域是一致的，不同的是const变量一旦被赋值，就不能再改变了，但是这并不意味着使用const声明的变量本身不可变，只是说它不可被再次赋值了，而且const声明的变量必须经过初始化。",
             "code": ""
         },
         {
-            "id": 47,
+            "id": 49,
             "question": "前端如何做代码优化？",
             "answer": "前端代码优化可以分为两大类：;1、页面级别优化，包含了http请求以及内联脚本位置优化；;2、代码级别优化，包含DOM操作优化，css选择符优化，图片优化以及HTML结构优化等。;3、优化的目的：在于让页面加载的更快，对用户操作响应更及时，为用户带来更好的用户体验，对于开发者来说优化能够减少页面请求数，能够节省资源。;4、优化方法：;1）http请求数，减少http请求数是很重要也是最有效的方法，可以通过以下方法来减少http请求：a）合理的设置http缓存，恰当的缓存设置可以大大减少http请求。要尽可能地让资源能够在缓存中待得更久；;b）从设计实现层面简化页面，保持页面简洁、减少资源的使用是最直接的；;c）资源合并与压缩，尽可能的将外部的脚本、样式进行合并，多个合为一个；;d）CSS Sprites，通过合并css图片，这是减少请求数的一个好办法。;2）内联脚本的位置：浏览器是并发请求的，而外链脚本在加载时却常常阻塞其他资源，例如在脚本加载完成之前，它后面的图片、样式以及其他脚本都处于阻塞状态，直到脚本加载完成后才会开始加载。如果将脚本放在比较靠前的位置，则会影响整个页面的加载速度从而影响用户体验。所以尽可能的将脚本往后挪，减少对并发下载的游戏。;3）代码级别的优化：;a）DOM操作优化：要避免在document上直接进行频繁的DOM操作，可以使用classname代替大量的内联样式修改，对于复杂的UI元素，设置position为absolute或fixed，尽量使用css动画，适当使用canvas，尽量减少css表达式的使用，使用事件代理；;b）图片优化：通过对图片的压缩来起到优化前端性能的作用；;c）css选择符：大多数人认为，浏览器对css的解析是从左往右的，事实上从右往左解析的效率更高，因为第一个id选择基本上就把查找的范围限定了。",
             "code": ""
         },
         {
-            "id": 48,
+            "id": 50,
             "question": "Math数学计算",
             "answer": "",
             "code": ""
         },
         {
-            "id": 49,
+            "id": 51,
             "question": "Math.random()随机数",
             "answer": "",
             "code": ""
         },
         {
-            "id": 50,
+            "id": 52,
             "question": "filter()过滤器",
             "answer": "",
             "code": ""
         },
         {
-            "id": 51,
+            "id": 53,
             "question": "移动端的点击事件有延迟，时间是多少？为什么会有？怎么解决这个问题？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 52,
+            "id": 54,
             "question": "移动端click事件、touch事件和tap事件的区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 53,
+            "id": 55,
             "question": "分别阐述split()、join()、slice()、splice()的区别？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 54,
+            "id": 56,
             "question": "bind()、call()和apply()的含义和区别？",
-            "answer": "",
-            "code": ""
+            "answer": "构造函数中apply、call、bind方法来改变this指针对象，构造函数中this初始值是为空的。;1、call和apply的区别：在于传递参数的不同，共同点是会立刻执行参数（注：call和apply不传参数时是一样的）；;2、bind()不是立刻执行的，造成两次传参的机会；;3、call()需要传递多个参数，逗号相隔；;4、apply()需要传递数组。",
+            "code": "function Cat(name) {;this.name = name;this.home = function() {;console.log(this);};};let lisi = new Cat('Lucy');let hdcms = {url: 'hdcms.com'};Cat.call(hdcms, '开源系统’) // 用call()来改变上面构造函数的this，此时传的参数hdcms改变的是this，第二个参数对应的是name"
         },
         {
-            "id": 55,
+            "id": 57,
             "question": "如何做到修改URL参数页面不刷新？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 56,
+            "id": 58,
             "question": "js构造函数和普通函数的区别？",
             "answer": "1、构造函数也是一个普通函数，创建方式和普通函数一样，但构造函数习惯上首字母大写；;2、构造函数和普通函数的区别在于：调用方式不一样。作用也不一样（构造函数用来新建实例对象）；;3、调用方式不一样：;a）普通函数的调用方式：直接调用 person()；;b）鼓噪函数的调用方式：需要使用new关键字来调用 new Person()。;4、构造函数的函数名与类名相同：Person()这个构造函数，Person即是函数名，也是这个对象的类名；;5、内部用this来构造属性和方法；;6、构造函数的执行流程：;a）立刻在堆内存中创建一个新的对象；;b）将新建的对象设置为函数中的this；;c）逐个执行函数中的代码；;d）将新建的对象作为返回值；;7、普通函数例子：因为没有返回值，所以为undefined；;8、构造函数例子：构造函数会马上创建一个新的对象，并将该新对象作为返回值返回；;9、用instanceof可以检查一个对象是否是一个类的实例，是则返回true；所有对象都是Object对象的后代，所以任何对象和Object做instanceof都会返回true。",
             "code": ""
         },
         {
-            "id": 57,
+            "id": 59,
             "question": "同步和异步的区别？",
-            "answer": "JS是单线程的，只能处理完一件事再做另一件事，但是设想如果前面一件事花费的时间特别长，我们只能一直等着他，就会阻塞下面的进程，这样程序运行时间增长，就会降低用户体验。于是所有的任务可以分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程，而进入”任务队里“（task queue）的任务，只有”任务队里“通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。;同步：按照一定的顺序去执行，执行完一个才能执行下一个。;异步：执行顺序是不确定的，由触发条件决定，什么时间执行也是不确定的，即使是定时器，异步处理可以同时执行多个。;例：拿ajax来说，同步就是当前这个ajax请求会被阻塞，直到请求返回结果，才会进入success或者error方法；异步就是当前ajax请求不会阻塞，请求发完就会交给浏览器了，后续的代码可以继续执行，如果在执行其他代码的时候这个异步请求收到回复，然后会触发异步的代码。一般都是异步的，比如你发个消息，你不需要确定对方收到了没有；而支付肯定是同步的，你得等待钱确定到账了才会让你退出当前页面。;JS的执行机制：;1、先判断js是同步的还是异步的，同步的就是同步任务，直接进入主线程处理，异步的就进入任务列表；;2、当任务列表内的异步处理达到了触发条件的时候（点击事件被点击时），就进入任务队列；;3、当所有的主线程的任务执行完毕之后，才会将任务队列里面的任务（回调函数）添加到主线程。",
+            "answer": "一、JS是单线程的，只能处理完一件事再做另一件事，但是设想如果前面一件事花费的时间特别长，我们只能一直等着他，就会阻塞下面的进程，这样程序运行时间增长，就会降低用户体验。于是所有的任务可以分成两种：一种是同步任务（synchronous），另一种是异步任务（asynchronous）。同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程，而进入”任务队列“（task queue）的任务，只有”任务队列“通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。;同步：按照一定的顺序去执行，执行完一个才能执行下一个。;异步：执行顺序是不确定的，由触发条件决定，什么时间执行也是不确定的，即使是定时器，异步处理可以同时执行多个。;例：拿ajax来说，同步就是当前这个ajax请求会被阻塞，直到请求返回结果，才会进入success或者error方法；异步就是当前ajax请求不会阻塞，请求发完就会交给浏览器了，后续的代码可以继续执行，如果在执行其他代码的时候这个异步请求收到回复，然后会触发异步的代码。一般都是异步的，比如你发个消息，你不需要确定对方收到了没有；而支付肯定是同步的，你得等待钱确定到账了才会让你退出当前页面。;二、JS的执行机制：;1、先判断js是同步的还是异步的，同步的就是同步任务，直接进入主线程处理，异步的就进入任务列表；;2、当任务列表内的异步处理达到了触发条件的时候（点击事件被点击时），就进入任务队列；;3、当所有的主线程的任务执行完毕之后，才会将任务队列里面的任务（回调函数）添加到主线程。;三、异步执行的运行机制如下（同步执行也是如此，因为它可以被视为没有异步任务的异步执行）：;1、所有同步任务都在主线程上执行，形成一个执行栈；;2、主线程之外，还存在一个“任务队列”。只要异步任务有了运行结果，就在“任务队列”中，放置一个事件；;3、一旦“执行栈”中的所有同步任务执行完毕，系统就会读取“任务队列”，看看里面有哪些事件，于是那些与事件相对应的异步任务结束等待状态，进入执行栈，开始执行；;4、主线程不断重复第三步操作。;只要主线程空了，就会去读取“任务队列”，这就是JavaScript的运行机制，这个过程会不断重复。",
             "code": "console.log(1);setTimeout(function() {console.log(2)});console.log(3); // 执行顺序： 1 3 2"
         },
         {
-            "id": 58,
-            "question": "nodejs工程化",
-            "answer": "",
-            "code": ""
-        },
-        {
-            "id": 59,
-            "question": "什么是函数式编程？",
-            "answer": "",
-            "code": ""
-        },
-        {
             "id": 60,
-            "question": "0.1*0.2等于多少（两个数字类型的值）？前端做计算运算时精度问题怎么处理？toFixed()是向下取整还是四舍五入？",
-            "answer": "",
-            "code": ""
+            "question": "promise和setTimeout哪个先执行？如果setTimeout的时间设置为0，哪个先执行？",
+            "answer": "一、JavaScript是单线程；;二、任务队列；;三、事件和回调函数：;前面提到过，“任务队列”其实是一个事件的队列，当IO（input和output）设备完成一项任务时，就在“任务队列”中添加一个事件，主线程读取“任务队列”，就是读取里面有哪些时间。;“任务队列”中的事件，除了IO设备的事件以外，还包括一些用户产生的事件（比如鼠标点击、页面滚动等）。只要指定过回调函数，这些事件发生时就会进入“任务队列”，等待主线程读取。;而所谓“回调函数”，就是那些会被主线程挂起来的代码。异步任务必须指定回调函数，当主线程开始执行异步任务，其实就是执行对应的回调函数。;四、事件循环：;基于前面的分析，总结一下“任务队列”的特点：;1、“任务队列”是一个先进先出的数据结构，排在前面的事件，优先被主线程读取；;2、只要执行栈一清空，最早进入“任务队列”的事件会率先进入主线程；;3、如果“任务队列”中存在定时器，主线程会优先检查一下执行时间，某些事件只有到了规定的时间，才能进入主线程。;主线程从“任务队列”中读取事件，这个过程是循环不断的，所以这种运行机制又被称为事件循环（Event Loop）。;五、定时器：;“任务队列”中除了放置异步任务的事件，还可以放置定时事件，即指定某些事件在多少事件后执行，以setTimeout(fn, delay)为例，它接受两个参数，第一个是回调函数，第二个是推迟执行的毫秒数。;console.log(1);setTimeout(function(){console.log(2)}, 0};console.log(3);// 1 3 2;JS引擎在执行这段代码时，首先把第一行和第三行代码存入执行栈，把第二行代码存入“任务队列”，只有当执行栈清空以后，主线程才会读取“任务队列”，这里的0毫秒实际上表示的意思是，执行栈清空以后，主线程立即读取存放在“任务队列”中的该段代码，所以输出的结果是1 3 2。;六、宏观任务（Macro Task）和微观任务（Micro Task）概念：;JavaScript代码在执行的时候，可以说就是拿一段代码给到JavaScript引擎并去执行，此外还可能会提供额外的API给到JavaScript引擎;1、宏观任务（setTimeout、setInterval、I/O等）：宿主（我们）发起的任务（在ES3或者更早的版本中，JavaScript并无异步操作，所以代码给到JavaScript引擎，它就直接顺次的执行，这个任务是宿主发起的任务我们可以称之为宏观任务）；;2、微观任务（Promise、MutationObserver等）：JavaScript引擎发起的任务（在ES5或者之后的版本，JavaScript出现了Promise，这就不需要浏览器的安排，引擎自己也可以发起任务，这个任务就叫做微观任务）。;微观任务执行顺序始终先于宏观任务，并且每个宏观任务可以包含多个微观任务（Promise执行器中的代码会被同步调用，但是回调是基于微观任务的）。;下面代码正确的执行顺序，基于前面的介绍，大致的分析过程如下：;1、JS引擎会把微观任务Promise存入执行栈，把宏观任务setTimeout存入”任务队列“；;2、主线程率先运行执行栈中的代码，依次输出1，然后把Promise里面的setTimeout存入”任务队列“；;3、执行栈清空以后，会率先读取”任务队列“中最早存入的setTimeout（和Promise同级的），并把这个定时器存入栈中，开始执行。这个定时器中的代码都是微观任务，所以可以一次性执行，依次输出3和4；;4、重复第3步的操作，读取”任务队列“中最后存入的setTimeout（Promise里面的），输出2，所以最终的输出结果就是1 3 4 2。如果把下面那个setTimeout延迟时间改为3000，结果会稍有不同，最终的输出结果是1 2 3 4",
+            "code": "Promise.resolve().then(() => {;console.log(1);setTimeout(() => {;console.log(2);}, 0);});setTimeout(() => {;console.log(3);Promise.resolve().then(() => {;console.log(4);});}, 0);// 1 3 4 2"
         },
         {
             "id": 61,
-            "question": "==和===的区别？",
+            "question": "async和await的区别？",
             "answer": "",
             "code": ""
         },
         {
             "id": 62,
-            "question": "用js制作过动画效果吗？实现流程说一下",
+            "question": "nodejs工程化",
             "answer": "",
             "code": ""
         },
         {
             "id": 63,
-            "question": "跨域问题是怎么解决的？",
+            "question": "什么是函数式编程？",
             "answer": "",
             "code": ""
         },
         {
             "id": 64,
-            "question": "",
+            "question": "0.1*0.2等于多少（两个数字类型的值）？前端做计算运算时精度问题怎么处理？toFixed()是向下取整还是四舍五入？",
             "answer": "",
             "code": ""
         },
         {
             "id": 65,
-            "question": "",
+            "question": "==和===的区别？",
             "answer": "",
             "code": ""
         },
         {
             "id": 66,
-            "question": "",
+            "question": "用js制作过动画效果吗？实现流程说一下",
             "answer": "",
             "code": ""
         },
         {
             "id": 67,
-            "question": "",
+            "question": "跨域问题是怎么解决的？",
             "answer": "",
             "code": ""
         },
         {
             "id": 68,
-            "question": "",
+            "question": "js的设计模式有哪些？",
             "answer": "",
             "code": ""
         },
@@ -416,6 +416,18 @@
         },
         {
             "id": 70,
+            "question": "",
+            "answer": "",
+            "code": ""
+        },
+        {
+            "id": 71,
+            "question": "",
+            "answer": "",
+            "code": ""
+        },
+        {
+            "id": 72,
             "question": "",
             "answer": "",
             "code": ""
@@ -436,7 +448,7 @@
         },
         {
             "id": 3,
-            "question": "在vue项目中，axios请求，如果是一张页面中同事请求两个接口要怎么做？",
+            "question": "在vue项目中，axios请求，如果是一张页面中同时请求两个接口要怎么做？",
             "answer": "",
             "code": ""
         },
@@ -485,7 +497,7 @@
         {
             "id": 11,
             "question": "vue数据双向绑定的实现原理",
-            "answer": "",
+            "answer": "1、vue2.x使用Object.defineProperty()，通过监听对象的属性来实现数据的双向绑定。利用Object.defineProperty()把内部解耦为三部分：;a）Observer：递归的监听对象上的所有属性，当属性改变时触发对应的watcher；;b）watcher（观察者）：当某一个数据值修改时，执行相应的回调函数，更新模板内容；;c）dep：链接observer和watcher，每一个observer对应一个dep，内部维护一个数组，保存与该observer相关的watcher。;2、vue3.x使用Proxy，Proxy可以直接监听整个对象，并返回一个新对象，且可以直接监听数组的变化",
             "code": ""
         },
         {
@@ -545,7 +557,7 @@
         {
             "id": 21,
             "question": "为什么要避免v-if和v-for用在一起？它俩的优先级",
-            "answer": "",
+            "answer": "当vue处理指令时，v-for比v-if具有更高的优先级，这意味着v-if将分别重复运行于每个v-for循环中。通过v-if移动到容器元素，不会再重复遍历列表中的每个值。取而代之的是，我们只检查它一次，且不会在v-if为否的时候运算v-for。",
             "code": ""
         },
         {
@@ -592,31 +604,31 @@
         },
         {
             "id": 29,
+            "question": "Vue的核心是什么？",
+            "answer": "模块化和通过操作数据来渲染DOM",
+            "code": ""
+        },
+        {
+            "id": 30,
             "question": "Vue为什么要用虚拟DOM？它的实现原理是什么？",
             "answer": "",
             "code": ""
         },
         {
-            "id": 30,
+            "id": 31,
             "question": "vue修饰符有哪些？",
             "answer": "1、.lazy：v-model不用多说，输入框改变，这个数据就会改变，lazy这个修饰符会在光标离开input框才会更新数据；;2、.trim：输入框过滤收尾的空格；;3、.number：先输入数字就会限制输入只能是数字，先字符串就相当于没有加number，注意，不是输入框不能输入字符串，是这个数据是数字；;4、.stop：阻止事件冒泡，相当于调用了event.stopPropagation()方法；;5、.prevent：阻止默认行为，相当于调用了event.preventDefault()方法，比如表单的提交、a标签的跳转就是默认事件；;6、.self：只有元素本身触发时才触发方法，就是只有点击元素本身才会触发。比如一个div里面有一个按钮，div和按钮都有事件，我们点击按钮，div绑定的方法也会触发，如果div的click加上self，只有点击到div的时候才会触发，变相的算是阻止冒泡；;7、.once：只能用一次，无论点击几次，执行一次之后都不会在执行；;8、.capture：事件的完整机制是捕获-目标-冒泡，事件触发是目标往外冒泡；;9、.passive：每次滚动都会有一个默认事件触发，加了这个就是告诉浏览器，不需要查询，不需要触发这个默认事件preventDefault；;10、.native：组件绑定当前组件的事件是不会触发的，需要用native才能触发；;11、鼠标.left、.right、.middle：就是鼠标点击的时候触发；;12、.keyCode：监听按键的指令；;13、.exact：系统修饰键，只有按着这个键然后用鼠标点击才会触发；;14、.sync：对prop进行双向绑定。",
             "code": "<input type='text' v-model.lazy='value'>;<input type='text' v-model.trim='value'>;<input type='text' v-model.number='value'>;<button @click.stop='test'>test</button>;<a @click.prevent='test'>test</a>;<div @click.self='test'></div>;<div @click.once='test'></div>;<div @click='test(1)'><button @click='test(2)'>test</button></div> // 顺序是2 1，capture的作用就是让这个顺序相反：;<div @click.capture='test(1)'><button @click.capture='test(2)'>test</button></div>;<div v-on:scroll.passive='onScroll'>...</div>;<My-component @click='shout(3)'></My-component>;<button @click.right='test'>test</button>;<input type='text' @keyup.enter='test(1)'>;<button @click.enter='test(1)'>test</button>;<button @click.exact='onClick'>A</button>;<fa-comp :fatest.sync='test'></fa-comp> // 父组件;this.$emit('update:fatest,sontest) //子组件"
         },
         {
-            "id": 31,
-            "question": "",
-            "answer": "",
-            "code": ""
-        },
-        {
             "id": 32,
-            "question": "路由守卫",
+            "question": "async created(){}",
             "answer": "",
             "code": ""
         },
         {
             "id": 33,
-            "question": "",
+            "question": "路由守卫",
             "answer": "",
             "code": ""
         },
@@ -652,6 +664,12 @@
         },
         {
             "id": 39,
+            "question": "",
+            "answer": "",
+            "code": ""
+        },
+        {
+            "id": 40,
             "question": "",
             "answer": "",
             "code": ""
@@ -716,8 +734,8 @@
         },
         {
             "id": 5,
-            "question": "弹性布局",
-            "answer": "flex布局",
+            "question": "flex弹性布局",
+            "answer": "1、flex-direction: row | row-reverse | column | column-reverse；row（默认值）：主轴为水平方向，起点在左端；row-reverse：主轴为水平方向，起点在右端；column：主轴为垂直方向，起点在上沿；column-reverse：主轴为垂直方向，起点在下沿；;2、flex-wrap: nowrap | wrap | wrap-reverse；nowrap（默认值）：不换行；wrap：换行，第一行在上方；wrap-reverse：换行，第一行在下方；;3、flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap；flex-flow: <flex-direction> || <flex-wrap>；;4、justify-content: flex-start | flex-end | center | space-between | space-around；flex-start（默认值）：左对齐；flex-end：右对齐；center：居中；space-between：两端对齐，项目之间的间隔都相等；space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍；;5、align-items: flex-start | flex-end | center | baseline | stretch；flex-start：交叉轴的起点对齐；flex-end：交叉轴的终点对齐；center：交叉轴的中点对齐；baseline：项目的第一行文字的基线对齐；stretch（默认值）：如果项目未设置高度或设为auto，将沾满整个容器的高度；;6、align-content: flex-start | flex-end | center | space-between | space-around | stretch；flex-start：与交叉轴的起点对齐；flex-end：与交叉轴的终点对齐；center：与交叉轴的中点对齐；space-between：与交叉轴两端对齐，轴线之间的间隔平均分布；space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍；stretch（默认值）：轴线占满整个交叉轴。",
             "code": ""
         },
         {

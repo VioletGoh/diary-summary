@@ -35,6 +35,9 @@ address, caption, cite, code,dfn, em, strong, th, var, optgroup{
     font-style: normal;
     font-weight: normal;
 }
+code{
+    font-family: inherit;
+}
 ul, ol, li{
     list-style: none;
 }
@@ -63,16 +66,44 @@ a, a:hover{
         cursor: pointer;
     }
     .answer, .code{
-        padding: .4rem .8rem;
         margin-bottom: .4rem;
-        color: @purple;
-        background-color: @bgColor;
         span{
             display: block;
-            margin-bottom: .4rem;
-            line-height: 1.4rem;
             &:last-child{
                 margin-bottom: 0;
+            }
+        }
+    }
+    .answer{
+        color: @purple;
+        background-color: @bgColor;
+        padding: .4rem .8rem;
+        span{
+            line-height: 1.4rem;
+            margin-bottom: .4rem;
+        }
+    }
+    .code{
+        color: @codeColor;
+        background-color: @codeBg;
+        padding: .4rem .8rem .4rem 3.5rem;
+        position: relative;
+        .index{
+            position: absolute;
+            top: .4rem;
+            left: 0;
+            width: 3rem;
+            text-align: right;
+            li{
+                padding: 0 .5rem;
+                line-height: 1.5rem;
+                border-right: 1px solid @lineColor;
+            }
+        }
+        code{
+            display: block;
+            span{
+                line-height: 1.5rem;
             }
         }
     }
@@ -80,7 +111,13 @@ a, a:hover{
 
 // @media
 @media (max-width: 1024px) {
+    .header .logo{
+        width: 14rem !important;
+    }
     .sidebar{
-        width: 15rem !important;
+        width: 14rem !important;
+    }
+    .wrapper{
+        margin-left: 14rem !important;
     }
 }
